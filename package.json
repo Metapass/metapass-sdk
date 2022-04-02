@@ -6,7 +6,7 @@
 	"repository": "Metapass/metapass-sdk",
 	"author": {
 		"name": "anoushk1234",
-		"email": "anoushka1828@gmail.com",
+		"email": "kharangateanoushk04@gmail.com",
 		"url": "https://metapasshq.xyz"
 	},
 	"type": "module","exports": "./index.js",
@@ -22,7 +22,9 @@
 	"keywords": [
 		""
 	],
-	"dependencies": {},
+	"dependencies": {
+		"@solana/web3.js": "^1.37.0"
+	},
 	"devDependencies": {
 		"ava": "^3.15.0",
 		"codecov": "^3.7.2",
