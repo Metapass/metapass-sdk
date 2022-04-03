@@ -9,7 +9,8 @@
 		"email": "kharangateanoushk04@gmail.com",
 		"url": "https://metapasshq.xyz"
 	},
-	"type": "module","exports": "./index.js",
+	"type": "module",
+	"exports": "./index.js",
 	"engines": {
 		"node": ">=12"
 	},
@@ -23,7 +24,10 @@
 		""
 	],
 	"dependencies": {
-		"@solana/web3.js": "^1.37.0"
+		"@project-serum/anchor": "^0.23.0",
+		"@solana/web3.js": "^1.37.0",
+		"@types/axios": "^0.14.0",
+		"@types/form-data": "^2.5.0"
 	},
 	"devDependencies": {
 		"ava": "^3.15.0",
