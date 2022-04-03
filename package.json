@@ -4,6 +4,7 @@
 	"description": "An sdk for the metapass protocol",
 	"license": "MIT",
 	"repository": "Metapass/metapass-sdk",
+	"main": "lib/index.js",
 	"author": {
 		"name": "anoushk1234",
 		"email": "kharangateanoushk04@gmail.com",
@@ -21,7 +22,9 @@
 		"index.js"
 	],
 	"keywords": [
-		""
+		"metapass",
+		"events",
+		"NFTs"
 	],
 	"dependencies": {
 		"@project-serum/anchor": "^0.23.0",
