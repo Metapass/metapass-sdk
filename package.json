@@ -11,7 +11,7 @@
 		"url": "https://metapasshq.xyz"
 	},
 	"type": "module",
-	"exports": "./index.js",
+	"exports": "./src/index.ts",
 	"engines": {
 		"node": ">=12"
 	},
@@ -19,7 +19,7 @@
 		"test": "xo && nyc ava"
 	},
 	"files": [
-		"index.js"
+		"./src/index.ts"
 	],
 	"keywords": [
 		"metapass",
@@ -36,6 +36,7 @@
 		"ava": "^3.15.0",
 		"codecov": "^3.7.2",
 		"nyc": "^15.1.0",
+		"typescript": "^4.6.3",
 		"xo": "^0.38.0"
 	},
 	"nyc": {
