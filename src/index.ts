@@ -4,7 +4,6 @@ import { conditions } from "./conditions";
 import { SystemProgram } from "@solana/web3.js";
 import * as anchor from "@project-serum/anchor";
 
-
 class Metapass {
 	address: string;
 
@@ -12,22 +11,18 @@ class Metapass {
 		this.address = address;
 	}
 
-	async createEvent() {
+	async createEvent(title: string, uri: string) {
 		const [eventPDA, _] = await getEventPda();
-		const tx = await program.rpc.initialize(
-			conditions.title,
-			conditions.uri,
-			{
-				accounts: {
-					eventAccount: eventPDA,
-					authority: anchor.getProvider().wallet.publicKey,
-					systemProgram: SystemProgram.programId,
-				},
-			}
-		);
+		const tx = await program.rpc.initialize(title, uri, {
+			//removed condtions from here, thats just for running tests
+			accounts: {
+				eventAccount: eventPDA,
+				authority: anchor.getProvider().wallet.publicKey,
+				systemProgram: SystemProgram.programId,
+			},
+		});
 		return tx;
 	}
-
 }
 
-export default Metapass
+export default Metapass;
