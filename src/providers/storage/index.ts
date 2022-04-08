@@ -1,2 +1,2 @@
-export * from './arweave';
-export * as storage from './Storage';
+export * from "./arweave";
+export * as storage from "./Storage";
