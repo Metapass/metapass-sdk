@@ -1,1 +1,1 @@
-export * from './ArweaveStorage';
+export * from "./ArweaveStorage";
