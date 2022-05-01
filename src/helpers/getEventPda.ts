@@ -1,7 +1,7 @@
 import { PublicKey } from "@solana/web3.js";
 import * as anchor from "@project-serum/anchor";
 import { PROGRAM_ID } from "..";
-const getEventPda = async (
+const getEventPDA = async (
   nonce: number,
   hostKey: PublicKey
 ): Promise<PublicKey> => {
@@ -16,4 +16,4 @@ const getEventPda = async (
   return eventPDA;
 };
 
-export default getEventPda;
+export default getEventPDA;

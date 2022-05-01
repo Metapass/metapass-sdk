@@ -1,4 +1,4 @@
-export * from './getAdminPda'
-export * from './getEventPda'
-export * from './getHostPda'
+export * from './getAdminPDA'
+export * from './getEventPDA'
+export * from './getHostPDA'
 export * from './getNonce'
