@@ -7,7 +7,7 @@ A SDK for Metapass written in typescript for interacting with Metapass Protocol 
 Install metapass-sdk with npm
 
 ```bash
-  npm install metapass-sdk
+  npm install metapass-sdk 
 ```
 
 ## Usage/Examples
