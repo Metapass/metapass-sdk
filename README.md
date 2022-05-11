@@ -16,4 +16,5 @@ Install metapass-sdk with npm
 import { PROGRAM_ID } from "metapass-sdk";
 ```
 
-Full documentation on the way
+## Documentation
+[docs.metapasshq.xyz](https://docs.metapasshq.xyz)
