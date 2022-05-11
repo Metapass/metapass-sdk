@@ -39,7 +39,7 @@ const getEvent = (eventPDA, provider) => __awaiter(void 0, void 0, void 0, funct
     try {
         if (eventPDA && provider) {
             const program = new anchor.Program(idl, __1.PROGRAM_ID, provider);
-            const eventData = yield program.account.eventccount.fetch(eventPDA);
+            const eventData = yield program.account.eventAccount.fetch(eventPDA);
             return eventData;
         }
         else
