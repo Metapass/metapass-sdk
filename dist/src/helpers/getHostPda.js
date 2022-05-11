@@ -35,8 +35,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const web3_js_1 = require("@solana/web3.js");
 const anchor = __importStar(require("@project-serum/anchor"));
 const __1 = require("..");
-const getHostPda = (hostKey) => __awaiter(void 0, void 0, void 0, function* () {
+const getHostPDA = (hostKey) => __awaiter(void 0, void 0, void 0, function* () {
     const [hostPda, _] = yield web3_js_1.PublicKey.findProgramAddress([anchor.utils.bytes.utf8.encode("event-host-key"), hostKey.toBuffer()], __1.PROGRAM_ID);
     return hostPda;
 });
-exports.default = getHostPda;
+exports.default = getHostPDA;
