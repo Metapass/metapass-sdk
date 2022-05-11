@@ -11,7 +11,7 @@ const getEvent = async (
   try {
     if (eventPDA && provider) {
       const program = new anchor.Program(idl, PROGRAM_ID, provider);
-      const eventData = await program.account.eventccount.fetch(eventPDA);
+      const eventData = await program.account.eventAccount.fetch(eventPDA);
       return eventData;
     } else throw new Error("eventPDA or provider is undefined");
   } catch (e: unknown) {
