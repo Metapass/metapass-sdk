@@ -38,13 +38,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const chai_1 = require("chai");
 const web3_js_1 = require("@solana/web3.js");
 const anchor = __importStar(require("@project-serum/anchor"));
-const getEventPda_1 = __importDefault(require("../src/helpers/getEventPda"));
+const getEventPDA_1 = __importDefault(require("../src/helpers/getEventPDA"));
 const getEvent_1 = __importDefault(require("../src/helpers/getEvent"));
 const nodewallet_1 = __importDefault(require("@project-serum/anchor/dist/cjs/nodewallet"));
 require("dotenv").config();
 describe("getEvent", () => __awaiter(void 0, void 0, void 0, function* () {
     it("get the event data", () => __awaiter(void 0, void 0, void 0, function* () {
-        const eventPDA = yield (0, getEventPda_1.default)(0, new web3_js_1.PublicKey("B641ooUCSG8ToLRki3YuxWMiNj6BS5c4eSM1rWcSazeV"));
+        const eventPDA = yield (0, getEventPDA_1.default)(0, new web3_js_1.PublicKey("B641ooUCSG8ToLRki3YuxWMiNj6BS5c4eSM1rWcSazeV"));
         const wallet = new nodewallet_1.default(web3_js_1.Keypair.generate());
         const provider = new anchor.AnchorProvider(new web3_js_1.Connection("https://api.devnet.solana.com"), wallet, {
             preflightCommitment: "recent",

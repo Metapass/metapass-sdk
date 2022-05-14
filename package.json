@@ -4,7 +4,8 @@
   "description": "Metapass SDK for hosting events on Solana",
   "main": "dist/index.js",
   "scripts": {
-    "test": "ts-mocha test/*.test.ts"
+    "test": "ts-mocha test/*.test.ts",
+    "build": "tsc"
   },
   "keywords": [
     "Metapass",

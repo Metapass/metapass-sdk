@@ -2,11 +2,11 @@ import { assert, expect } from "chai";
 import { Connection, PublicKey, Keypair } from "@solana/web3.js";
 import * as anchor from "@project-serum/anchor";
 import { PROGRAM_ID } from "../src";
-import getEventPDA from "../src/helpers/getEventPda";
+import getEventPDA from "../src/helpers/getEventPDA";
 import getEvent from "../src/helpers/getEvent";
 import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
 import { EventType } from "../src/types/Event";
-import { send } from "@ayshptk/msngr";
+
 require("dotenv").config();
 describe("getEvent", async () => {
   it("get the event data", async () => {
