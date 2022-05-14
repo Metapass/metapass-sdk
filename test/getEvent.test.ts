@@ -26,7 +26,7 @@ describe("getEvent", async () => {
       eventPDA,
       provider
     )) as EventType;
-    console.log(typeof eventData);
+    console.log(eventData);
     expect(eventData.title).equal("Coinbase Event");
   });
 });
