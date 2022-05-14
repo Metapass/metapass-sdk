@@ -2,7 +2,7 @@ import * as anchor from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
 import { PROGRAM_ID } from "..";
 const idl: anchor.Idl = require("../idl/idl.json");
-import { send } from "@ayshptk/msngr";
+
 
 const getEvent = async (
   eventPDA: PublicKey,
