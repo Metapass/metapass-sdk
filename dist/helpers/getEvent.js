@@ -34,11 +34,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const anchor = __importStar(require("@project-serum/anchor"));
 const __1 = require("..");
-const idl = require("../idl/idl.json");
+const idl_1 = require("../idl");
 const getEvent = (eventPDA, provider) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (eventPDA && provider) {
-            const program = new anchor.Program(idl, __1.PROGRAM_ID, provider);
+            const program = new anchor.Program(idl_1.idl, __1.PROGRAM_ID, provider);
             const eventData = yield program.account.eventAccount.fetch(eventPDA);
             return eventData;
         }
