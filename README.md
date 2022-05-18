@@ -2,7 +2,7 @@
 
 A SDK for Metapass written in typescript for interacting with Metapass Protocol on solana.
 
-## Installation
+## Installation  
 
 Install metapass-sdk with npm
 
