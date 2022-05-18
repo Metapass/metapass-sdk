@@ -1,6 +1,6 @@
 import { PublicKey } from "@solana/web3.js";
 import * as anchor from "@project-serum/anchor";
-import { PROGRAM_ID } from "..";
+// import { PROGRAM_ID } from "..";
 export const getEventPDA = async (
   nonce: number,
   hostKey: PublicKey
@@ -11,7 +11,7 @@ export const getEventPDA = async (
       hostKey.toBuffer(),
       new anchor.BN(nonce).toArrayLike(Buffer),
     ],
-    PROGRAM_ID
+    new PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo")
   );
   return eventPDA;
 };

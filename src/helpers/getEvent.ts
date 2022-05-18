@@ -1,6 +1,6 @@
 import * as anchor from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
-import { PROGRAM_ID } from "..";
+
 import { idl } from "../idl";
 
 export const getEvent = async (
@@ -11,7 +11,7 @@ export const getEvent = async (
     if (eventPDA && provider) {
       const program = new anchor.Program(
         idl as anchor.Idl,
-        PROGRAM_ID,
+        new PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"),
         provider
       );
       const eventData = await program.account.eventAccount.fetch(eventPDA);
