@@ -8,7 +8,7 @@ const getAllEvents = async (
   let events: EventAccount[] = [];
   try {
     const accounts = await connection.getProgramAccounts(PROGRAM_ID);
-    accounts.forEach((account) => {
+    accounts.map((account) => {
       try {
         events.push(EventAccount.fromAccountInfo(account.account)[0]);
       } catch (error) {}

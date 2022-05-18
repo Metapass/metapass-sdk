@@ -13,25 +13,20 @@ const __1 = require("..");
 const accounts_1 = require("../accounts");
 const getAllEvents = (connection) => __awaiter(void 0, void 0, void 0, function* () {
     let events = [];
-    // try {
-    const accounts = yield connection.getProgramAccounts(__1.PROGRAM_ID);
-    console.log("this works", accounts);
-    accounts.forEach((account) => {
-        try {
-            console.log("enter");
-            events.push(accounts_1.EventAccount.fromAccountInfo(account.account)[0]);
-        }
-        catch (error) {
-            console.log("skipping account");
-        }
-    });
-    // } catch (e: unknown) {
-    //   const result = e as Error;
-    //   console.log("Error in file getEvent.ts: ", result.message);
-    //   console.log(
-    //     "Ping us in our discord server, devs wil definitely do something :)"
-    //   );
-    // }
+    try {
+        const accounts = yield connection.getProgramAccounts(__1.PROGRAM_ID);
+        accounts.map((account) => {
+            try {
+                events.push(accounts_1.EventAccount.fromAccountInfo(account.account)[0]);
+            }
+            catch (error) { }
+        });
+    }
+    catch (e) {
+        const result = e;
+        console.log("Error in file getEvent.ts: ", result.message);
+        console.log("Ping us in our discord server, devs wil definitely do something :)");
+    }
     return events;
 });
 exports.default = getAllEvents;
