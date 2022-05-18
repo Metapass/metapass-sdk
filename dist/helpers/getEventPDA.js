@@ -32,6 +32,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getEventPDA = void 0;
 const web3_js_1 = require("@solana/web3.js");
 const anchor = __importStar(require("@project-serum/anchor"));
 const __1 = require("..");
@@ -43,4 +44,4 @@ const getEventPDA = (nonce, hostKey) => __awaiter(void 0, void 0, void 0, functi
     ], __1.PROGRAM_ID);
     return eventPDA;
 });
-exports.default = getEventPDA;
+exports.getEventPDA = getEventPDA;

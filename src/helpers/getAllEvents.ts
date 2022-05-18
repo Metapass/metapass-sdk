@@ -2,7 +2,7 @@ import { Connection } from "@solana/web3.js";
 import { PROGRAM_ID } from "..";
 import { EventAccount } from "../accounts";
 
-const getAllEvents = async (
+export const getAllEvents = async (
   connection: Connection
 ): Promise<Array<EventAccount>> => {
   let events: EventAccount[] = [];
@@ -23,5 +23,3 @@ const getAllEvents = async (
   }
   return events;
 };
-
-export default getAllEvents;

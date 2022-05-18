@@ -32,6 +32,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getNonce = void 0;
 const anchor = __importStar(require("@project-serum/anchor"));
 const __1 = require("..");
 const idl_1 = require("../idl");
@@ -49,4 +50,4 @@ const getNonce = (hostPDA, provider) => __awaiter(void 0, void 0, void 0, functi
         console.log(e);
     }
 });
-exports.default = getNonce;
+exports.getNonce = getNonce;

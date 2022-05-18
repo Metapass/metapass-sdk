@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAllEvents = void 0;
 const __1 = require("..");
 const accounts_1 = require("../accounts");
 const getAllEvents = (connection) => __awaiter(void 0, void 0, void 0, function* () {
@@ -29,4 +30,4 @@ const getAllEvents = (connection) => __awaiter(void 0, void 0, void 0, function*
     }
     return events;
 });
-exports.default = getAllEvents;
+exports.getAllEvents = getAllEvents;

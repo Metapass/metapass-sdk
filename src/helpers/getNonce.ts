@@ -3,7 +3,7 @@ import { PublicKey } from "@solana/web3.js";
 import { PROGRAM_ID } from "..";
 import { idl } from "../idl";
 
-const getNonce = async (
+export const getNonce = async (
   hostPDA: PublicKey,
   provider: anchor.AnchorProvider
 ) => {
@@ -21,4 +21,3 @@ const getNonce = async (
     console.log(e);
   }
 };
-export default getNonce;

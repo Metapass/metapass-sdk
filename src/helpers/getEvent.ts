@@ -3,7 +3,7 @@ import { PublicKey } from "@solana/web3.js";
 import { PROGRAM_ID } from "..";
 import { idl } from "../idl";
 
-const getEvent = async (
+export const getEvent = async (
   eventPDA: PublicKey,
   provider: anchor.AnchorProvider
 ) => {
@@ -26,4 +26,3 @@ const getEvent = async (
     );
   }
 };
-export default getEvent;

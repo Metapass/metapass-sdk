@@ -32,6 +32,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getEvent = void 0;
 const anchor = __importStar(require("@project-serum/anchor"));
 const __1 = require("..");
 const idl_1 = require("../idl");
@@ -51,4 +52,4 @@ const getEvent = (eventPDA, provider) => __awaiter(void 0, void 0, void 0, funct
         console.log("Ping us in our discord server, devs wil definitely do something :)");
     }
 });
-exports.default = getEvent;
+exports.getEvent = getEvent;
