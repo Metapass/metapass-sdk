@@ -1,7 +1,7 @@
 import * as anchor from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
 import { PROGRAM_ID } from "..";
-const idl: anchor.Idl = require("../idl/idl.json");
+import { idl } from "../idl";
 
 const getNonce = async (
   hostPDA: PublicKey,
@@ -9,7 +9,11 @@ const getNonce = async (
 ) => {
   try {
     if (hostPDA && provider) {
-      const program = new anchor.Program(idl, PROGRAM_ID, provider);
+      const program = new anchor.Program(
+        idl as anchor.Idl,
+        PROGRAM_ID,
+        provider
+      );
       const hostData = await program.account.eventHostAccount.fetch(hostPDA);
       return hostData.eventHostStruct.eventCount;
     } else throw new Error("hostPDA or provider is undefined");
