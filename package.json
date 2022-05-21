@@ -3,6 +3,7 @@
   "version": "0.1.20",
   "description": "Metapass SDK for hosting events on Solana",
   "main": "dist/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "test": "ts-mocha test/*.test.ts",
     "build": "tsc",

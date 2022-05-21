@@ -1,0 +1,23 @@
+import { EventHost } from "./EventHost";
+import { BN } from "@project-serum/anchor";
+import { PublicKey } from "@solana/web3.js";
+export declare type EventType = {
+    title: string;
+    description: string;
+    uri: string;
+    link: string;
+    fee: BN;
+    seats: BN;
+    occupiedSeats: BN;
+    date: string;
+    collection: string;
+    venue: string;
+    authority: PublicKey;
+    creators: PublicKey[];
+    eventHost: EventHost;
+    eventNonce: BN;
+    bump: number;
+    isCutPayedByCreator: boolean;
+    isCustomSplToken: boolean;
+    customSplToken: PublicKey;
+};

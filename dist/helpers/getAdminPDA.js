@@ -35,9 +35,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAdminPDA = void 0;
 const web3_js_1 = require("@solana/web3.js");
 const anchor = __importStar(require("@project-serum/anchor"));
-const __1 = require("..");
 const getAdminPDA = () => __awaiter(void 0, void 0, void 0, function* () {
-    const [adminPda, _] = yield web3_js_1.PublicKey.findProgramAddress([anchor.utils.bytes.utf8.encode("admin")], __1.PROGRAM_ID);
+    const [adminPda, _] = yield web3_js_1.PublicKey.findProgramAddress([anchor.utils.bytes.utf8.encode("admin")], new web3_js_1.PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"));
     return adminPda;
 });
 exports.getAdminPDA = getAdminPDA;
