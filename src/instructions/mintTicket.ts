@@ -14,14 +14,46 @@ import * as web3 from '@solana/web3.js'
  * @category MintTicket
  * @category generated
  */
-const mintTicketStruct = new beet.BeetArgsStruct<{
-  instructionDiscriminator: number[] /* size: 8 */
-}>(
-  [['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)]],
+export type MintTicketInstructionArgs = {
+  uri: string
+}
+/**
+ * @category Instructions
+ * @category MintTicket
+ * @category generated
+ */
+export const mintTicketStruct = new beet.FixableBeetArgsStruct<
+  MintTicketInstructionArgs & {
+    instructionDiscriminator: number[] /* size: 8 */
+  }
+>(
+  [
+    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
+    ['uri', beet.utf8String],
+  ],
   'MintTicketInstructionArgs'
 )
 /**
  * Accounts required by the _mintTicket_ instruction
+ *
+ * @property [_writable_, **signer**] mintAuthority
+ * @property [_writable_] eventAccount
+ * @property [_writable_, **signer**] mint
+ * @property [_writable_] metadata
+ * @property [_writable_] tokenAccount
+ * @property [] tokenMetadataProgram
+ * @property [_writable_] payer
+ * @property [_writable_] masterEdition
+ * @property [_writable_] eventHost
+ * @property [_writable_] eventHostKey
+ * @property [_writable_] adminAccount
+ * @property [_writable_] adminKey
+ * @property [_writable_] customSplToken
+ * @property [] customSplTokenProgram
+ * @property [_writable_] senderCustomSplTokenAta
+ * @property [_writable_] hostCustomSplTokenAta
+ * @property [_writable_] adminCustomTokenAta
+ * @property [] associatedTokenProgram
  * @category Instructions
  * @category MintTicket
  * @category generated
@@ -47,19 +79,23 @@ export type MintTicketInstructionAccounts = {
   associatedTokenProgram: web3.PublicKey
 }
 
-const mintTicketInstructionDiscriminator = [159, 167, 223, 60, 138, 6, 23, 29]
+export const mintTicketInstructionDiscriminator = [
+  159, 167, 223, 60, 138, 6, 23, 29,
+]
 
 /**
  * Creates a _MintTicket_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
+ * @param args to provide as instruction data to the program
  *
  * @category Instructions
  * @category MintTicket
  * @category generated
  */
 export function createMintTicketInstruction(
-  accounts: MintTicketInstructionAccounts
+  accounts: MintTicketInstructionAccounts,
+  args: MintTicketInstructionArgs
 ) {
   const {
     mintAuthority,
@@ -84,6 +120,7 @@ export function createMintTicketInstruction(
 
   const [data] = mintTicketStruct.serialize({
     instructionDiscriminator: mintTicketInstructionDiscriminator,
+    ...args,
   })
   const keys: web3.AccountMeta[] = [
     {
@@ -195,7 +232,7 @@ export function createMintTicketInstruction(
 
   const ix = new web3.TransactionInstruction({
     programId: new web3.PublicKey(
-      'Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'
+      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
     ),
     keys,
     data,

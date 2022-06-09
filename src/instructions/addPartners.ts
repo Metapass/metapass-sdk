@@ -22,7 +22,7 @@ export type AddPartnersInstructionArgs = {
  * @category AddPartners
  * @category generated
  */
-const addPartnersStruct = new beet.BeetArgsStruct<
+export const addPartnersStruct = new beet.BeetArgsStruct<
   AddPartnersInstructionArgs & {
     instructionDiscriminator: number[] /* size: 8 */
   }
@@ -35,6 +35,9 @@ const addPartnersStruct = new beet.BeetArgsStruct<
 )
 /**
  * Accounts required by the _addPartners_ instruction
+ *
+ * @property [_writable_] adminAccount
+ * @property [_writable_, **signer**] adminAuthority
  * @category Instructions
  * @category AddPartners
  * @category generated
@@ -44,7 +47,9 @@ export type AddPartnersInstructionAccounts = {
   adminAuthority: web3.PublicKey
 }
 
-const addPartnersInstructionDiscriminator = [130, 213, 217, 119, 251, 82, 6, 73]
+export const addPartnersInstructionDiscriminator = [
+  130, 213, 217, 119, 251, 82, 6, 73,
+]
 
 /**
  * Creates a _AddPartners_ instruction.
@@ -81,7 +86,7 @@ export function createAddPartnersInstruction(
 
   const ix = new web3.TransactionInstruction({
     programId: new web3.PublicKey(
-      'Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'
+      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
     ),
     keys,
     data,

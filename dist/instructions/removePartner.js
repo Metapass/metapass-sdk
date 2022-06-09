@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createRemovePartnerInstruction = void 0;
+exports.createRemovePartnerInstruction = exports.removePartnerInstructionDiscriminator = exports.removePartnerStruct = void 0;
 const web3 = __importStar(require("@solana/web3.js"));
 const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
 const beet = __importStar(require("@metaplex-foundation/beet"));
@@ -38,11 +38,11 @@ const beet = __importStar(require("@metaplex-foundation/beet"));
  * @category RemovePartner
  * @category generated
  */
-const removePartnerStruct = new beet.BeetArgsStruct([
+exports.removePartnerStruct = new beet.BeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['address', beetSolana.publicKey],
 ], 'RemovePartnerInstructionArgs');
-const removePartnerInstructionDiscriminator = [
+exports.removePartnerInstructionDiscriminator = [
     205, 64, 184, 235, 182, 107, 63, 15,
 ];
 /**
@@ -57,7 +57,7 @@ const removePartnerInstructionDiscriminator = [
  */
 function createRemovePartnerInstruction(accounts, args) {
     const { adminAccount, adminAuthority } = accounts;
-    const [data] = removePartnerStruct.serialize(Object.assign({ instructionDiscriminator: removePartnerInstructionDiscriminator }, args));
+    const [data] = exports.removePartnerStruct.serialize(Object.assign({ instructionDiscriminator: exports.removePartnerInstructionDiscriminator }, args));
     const keys = [
         {
             pubkey: adminAccount,
@@ -71,7 +71,7 @@ function createRemovePartnerInstruction(accounts, args) {
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'),
+        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
         keys,
         data,
     });

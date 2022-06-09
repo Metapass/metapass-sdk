@@ -183,16 +183,56 @@ export class EventAccount implements EventAccountArgs {
       description: this.description,
       uri: this.uri,
       link: this.link,
-      fee: this.fee,
-      seats: this.seats,
-      occupiedSeats: this.occupiedSeats,
+      fee: (() => {
+        const x = <{ toNumber: () => number }>this.fee
+        if (typeof x.toNumber === 'function') {
+          try {
+            return x.toNumber()
+          } catch (_) {
+            return x
+          }
+        }
+        return x
+      })(),
+      seats: (() => {
+        const x = <{ toNumber: () => number }>this.seats
+        if (typeof x.toNumber === 'function') {
+          try {
+            return x.toNumber()
+          } catch (_) {
+            return x
+          }
+        }
+        return x
+      })(),
+      occupiedSeats: (() => {
+        const x = <{ toNumber: () => number }>this.occupiedSeats
+        if (typeof x.toNumber === 'function') {
+          try {
+            return x.toNumber()
+          } catch (_) {
+            return x
+          }
+        }
+        return x
+      })(),
       date: this.date,
       collection: this.collection.toBase58(),
       venue: this.venue,
       authority: this.authority.toBase58(),
       creators: this.creators,
       eventHost: this.eventHost,
-      eventNonce: this.eventNonce,
+      eventNonce: (() => {
+        const x = <{ toNumber: () => number }>this.eventNonce
+        if (typeof x.toNumber === 'function') {
+          try {
+            return x.toNumber()
+          } catch (_) {
+            return x
+          }
+        }
+        return x
+      })(),
       bump: this.bump,
       isCutPayedByCreator: this.isCutPayedByCreator,
       isCustomSplToken: this.isCustomSplToken,

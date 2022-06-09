@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createInitializeEventInstruction = void 0;
+exports.createInitializeEventInstruction = exports.initializeEventInstructionDiscriminator = exports.initializeEventStruct = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
 const CreateEventInput_1 = require("../types/CreateEventInput");
@@ -38,11 +38,11 @@ const CreateEventInput_1 = require("../types/CreateEventInput");
  * @category InitializeEvent
  * @category generated
  */
-const initializeEventStruct = new beet.FixableBeetArgsStruct([
+exports.initializeEventStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['createEventInfo', CreateEventInput_1.createEventInputBeet],
 ], 'InitializeEventInstructionArgs');
-const initializeEventInstructionDiscriminator = [
+exports.initializeEventInstructionDiscriminator = [
     126, 249, 86, 221, 202, 171, 134, 20,
 ];
 /**
@@ -57,7 +57,7 @@ const initializeEventInstructionDiscriminator = [
  */
 function createInitializeEventInstruction(accounts, args) {
     const { eventAccount, authority, eventHostAccount } = accounts;
-    const [data] = initializeEventStruct.serialize(Object.assign({ instructionDiscriminator: initializeEventInstructionDiscriminator }, args));
+    const [data] = exports.initializeEventStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeEventInstructionDiscriminator }, args));
     const keys = [
         {
             pubkey: eventAccount,
@@ -81,7 +81,7 @@ function createInitializeEventInstruction(accounts, args) {
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'),
+        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
         keys,
         data,
     });

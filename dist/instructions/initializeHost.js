@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createInitializeHostInstruction = void 0;
+exports.createInitializeHostInstruction = exports.initializeHostInstructionDiscriminator = exports.initializeHostStruct = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
 /**
@@ -37,12 +37,12 @@ const web3 = __importStar(require("@solana/web3.js"));
  * @category InitializeHost
  * @category generated
  */
-const initializeHostStruct = new beet.FixableBeetArgsStruct([
+exports.initializeHostStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['displayName', beet.utf8String],
     ['profileImg', beet.utf8String],
 ], 'InitializeHostInstructionArgs');
-const initializeHostInstructionDiscriminator = [
+exports.initializeHostInstructionDiscriminator = [
     144, 209, 228, 75, 220, 241, 73, 77,
 ];
 /**
@@ -57,7 +57,7 @@ const initializeHostInstructionDiscriminator = [
  */
 function createInitializeHostInstruction(accounts, args) {
     const { eventHostAccount, authority } = accounts;
-    const [data] = initializeHostStruct.serialize(Object.assign({ instructionDiscriminator: initializeHostInstructionDiscriminator }, args));
+    const [data] = exports.initializeHostStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeHostInstructionDiscriminator }, args));
     const keys = [
         {
             pubkey: eventHostAccount,
@@ -76,7 +76,7 @@ function createInitializeHostInstruction(accounts, args) {
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'),
+        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
         keys,
         data,
     });
