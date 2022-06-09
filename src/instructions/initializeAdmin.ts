@@ -22,7 +22,7 @@ export type InitializeAdminInstructionArgs = {
  * @category InitializeAdmin
  * @category generated
  */
-const initializeAdminStruct = new beet.FixableBeetArgsStruct<
+export const initializeAdminStruct = new beet.FixableBeetArgsStruct<
   InitializeAdminInstructionArgs & {
     instructionDiscriminator: number[] /* size: 8 */
   }
@@ -35,6 +35,9 @@ const initializeAdminStruct = new beet.FixableBeetArgsStruct<
 )
 /**
  * Accounts required by the _initializeAdmin_ instruction
+ *
+ * @property [_writable_] adminAccount
+ * @property [_writable_, **signer**] adminAuthority
  * @category Instructions
  * @category InitializeAdmin
  * @category generated
@@ -44,7 +47,7 @@ export type InitializeAdminInstructionAccounts = {
   adminAuthority: web3.PublicKey
 }
 
-const initializeAdminInstructionDiscriminator = [
+export const initializeAdminInstructionDiscriminator = [
   35, 176, 8, 143, 42, 160, 61, 158,
 ]
 
@@ -88,7 +91,7 @@ export function createInitializeAdminInstruction(
 
   const ix = new web3.TransactionInstruction({
     programId: new web3.PublicKey(
-      'Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'
+      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
     ),
     keys,
     data,

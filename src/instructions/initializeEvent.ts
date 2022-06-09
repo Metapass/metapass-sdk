@@ -25,7 +25,7 @@ export type InitializeEventInstructionArgs = {
  * @category InitializeEvent
  * @category generated
  */
-const initializeEventStruct = new beet.FixableBeetArgsStruct<
+export const initializeEventStruct = new beet.FixableBeetArgsStruct<
   InitializeEventInstructionArgs & {
     instructionDiscriminator: number[] /* size: 8 */
   }
@@ -38,6 +38,10 @@ const initializeEventStruct = new beet.FixableBeetArgsStruct<
 )
 /**
  * Accounts required by the _initializeEvent_ instruction
+ *
+ * @property [_writable_] eventAccount
+ * @property [_writable_, **signer**] authority
+ * @property [_writable_] eventHostAccount
  * @category Instructions
  * @category InitializeEvent
  * @category generated
@@ -48,7 +52,7 @@ export type InitializeEventInstructionAccounts = {
   eventHostAccount: web3.PublicKey
 }
 
-const initializeEventInstructionDiscriminator = [
+export const initializeEventInstructionDiscriminator = [
   126, 249, 86, 221, 202, 171, 134, 20,
 ]
 
@@ -97,7 +101,7 @@ export function createInitializeEventInstruction(
 
   const ix = new web3.TransactionInstruction({
     programId: new web3.PublicKey(
-      'Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'
+      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
     ),
     keys,
     data,

@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createInitializeAdminInstruction = void 0;
+exports.createInitializeAdminInstruction = exports.initializeAdminInstructionDiscriminator = exports.initializeAdminStruct = void 0;
 const web3 = __importStar(require("@solana/web3.js"));
 const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
 const beet = __importStar(require("@metaplex-foundation/beet"));
@@ -38,11 +38,11 @@ const beet = __importStar(require("@metaplex-foundation/beet"));
  * @category InitializeAdmin
  * @category generated
  */
-const initializeAdminStruct = new beet.FixableBeetArgsStruct([
+exports.initializeAdminStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['admins', beet.array(beetSolana.publicKey)],
 ], 'InitializeAdminInstructionArgs');
-const initializeAdminInstructionDiscriminator = [
+exports.initializeAdminInstructionDiscriminator = [
     35, 176, 8, 143, 42, 160, 61, 158,
 ];
 /**
@@ -57,7 +57,7 @@ const initializeAdminInstructionDiscriminator = [
  */
 function createInitializeAdminInstruction(accounts, args) {
     const { adminAccount, adminAuthority } = accounts;
-    const [data] = initializeAdminStruct.serialize(Object.assign({ instructionDiscriminator: initializeAdminInstructionDiscriminator }, args));
+    const [data] = exports.initializeAdminStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeAdminInstructionDiscriminator }, args));
     const keys = [
         {
             pubkey: adminAccount,
@@ -76,7 +76,7 @@ function createInitializeAdminInstruction(accounts, args) {
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'),
+        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
         keys,
         data,
     });

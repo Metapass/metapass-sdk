@@ -22,7 +22,7 @@ export type RemovePartnerInstructionArgs = {
  * @category RemovePartner
  * @category generated
  */
-const removePartnerStruct = new beet.BeetArgsStruct<
+export const removePartnerStruct = new beet.BeetArgsStruct<
   RemovePartnerInstructionArgs & {
     instructionDiscriminator: number[] /* size: 8 */
   }
@@ -35,6 +35,9 @@ const removePartnerStruct = new beet.BeetArgsStruct<
 )
 /**
  * Accounts required by the _removePartner_ instruction
+ *
+ * @property [_writable_] adminAccount
+ * @property [_writable_, **signer**] adminAuthority
  * @category Instructions
  * @category RemovePartner
  * @category generated
@@ -44,7 +47,7 @@ export type RemovePartnerInstructionAccounts = {
   adminAuthority: web3.PublicKey
 }
 
-const removePartnerInstructionDiscriminator = [
+export const removePartnerInstructionDiscriminator = [
   205, 64, 184, 235, 182, 107, 63, 15,
 ]
 
@@ -83,7 +86,7 @@ export function createRemovePartnerInstruction(
 
   const ix = new web3.TransactionInstruction({
     programId: new web3.PublicKey(
-      'Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'
+      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
     ),
     keys,
     data,

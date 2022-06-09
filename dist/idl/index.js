@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.idl = void 0;
 exports.idl = {
     "version": "0.1.0",
-    "name": "storagemp",
+    "name": "metapass_program",
     "instructions": [
         {
             "name": "initializeHost",
@@ -177,7 +177,12 @@ exports.idl = {
                     "isSigner": false
                 }
             ],
-            "args": []
+            "args": [
+                {
+                    "name": "uri",
+                    "type": "string"
+                }
+            ]
         },
         {
             "name": "initializeAdmin",
@@ -464,26 +469,23 @@ exports.idl = {
                     }
                 ]
             }
-        }
-    ],
-    "errors": [
-        {
-            "code": 6000,
-            "name": "InvalidCustomSplToken",
-            "msg": "Custom SPL Token doesnt match with Host provided token"
         },
         {
-            "code": 6001,
-            "name": "SignerNotAdmin",
-            "msg": "THe Signer of this transaction is not the admin"
-        },
-        {
-            "code": 6002,
-            "name": "DataNotUpdated",
-            "msg": "data not updated"
+            "name": "CustomErrorCodes",
+            "type": {
+                "kind": "enum",
+                "variants": [
+                    {
+                        "name": "InvalidCustomSplToken"
+                    },
+                    {
+                        "name": "SignerNotAdmin"
+                    },
+                    {
+                        "name": "DataNotUpdated"
+                    }
+                ]
+            }
         }
-    ],
-    "metadata": {
-        "address": "Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"
-    }
+    ]
 };

@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createAddPartnersInstruction = void 0;
+exports.createAddPartnersInstruction = exports.addPartnersInstructionDiscriminator = exports.addPartnersStruct = void 0;
 const web3 = __importStar(require("@solana/web3.js"));
 const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
 const beet = __importStar(require("@metaplex-foundation/beet"));
@@ -38,11 +38,13 @@ const beet = __importStar(require("@metaplex-foundation/beet"));
  * @category AddPartners
  * @category generated
  */
-const addPartnersStruct = new beet.BeetArgsStruct([
+exports.addPartnersStruct = new beet.BeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['partner', beetSolana.publicKey],
 ], 'AddPartnersInstructionArgs');
-const addPartnersInstructionDiscriminator = [130, 213, 217, 119, 251, 82, 6, 73];
+exports.addPartnersInstructionDiscriminator = [
+    130, 213, 217, 119, 251, 82, 6, 73,
+];
 /**
  * Creates a _AddPartners_ instruction.
  *
@@ -55,7 +57,7 @@ const addPartnersInstructionDiscriminator = [130, 213, 217, 119, 251, 82, 6, 73]
  */
 function createAddPartnersInstruction(accounts, args) {
     const { adminAccount, adminAuthority } = accounts;
-    const [data] = addPartnersStruct.serialize(Object.assign({ instructionDiscriminator: addPartnersInstructionDiscriminator }, args));
+    const [data] = exports.addPartnersStruct.serialize(Object.assign({ instructionDiscriminator: exports.addPartnersInstructionDiscriminator }, args));
     const keys = [
         {
             pubkey: adminAccount,
@@ -69,7 +71,7 @@ function createAddPartnersInstruction(accounts, args) {
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'),
+        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
         keys,
         data,
     });

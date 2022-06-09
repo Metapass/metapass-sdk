@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createMintTicketInstruction = void 0;
+exports.createMintTicketInstruction = exports.mintTicketInstructionDiscriminator = exports.mintTicketStruct = void 0;
 const splToken = __importStar(require("@solana/spl-token"));
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
@@ -38,22 +38,26 @@ const web3 = __importStar(require("@solana/web3.js"));
  * @category MintTicket
  * @category generated
  */
-const mintTicketStruct = new beet.BeetArgsStruct([['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)]], 'MintTicketInstructionArgs');
-const mintTicketInstructionDiscriminator = [159, 167, 223, 60, 138, 6, 23, 29];
+exports.mintTicketStruct = new beet.FixableBeetArgsStruct([
+    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
+    ['uri', beet.utf8String],
+], 'MintTicketInstructionArgs');
+exports.mintTicketInstructionDiscriminator = [
+    159, 167, 223, 60, 138, 6, 23, 29,
+];
 /**
  * Creates a _MintTicket_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
+ * @param args to provide as instruction data to the program
  *
  * @category Instructions
  * @category MintTicket
  * @category generated
  */
-function createMintTicketInstruction(accounts) {
+function createMintTicketInstruction(accounts, args) {
     const { mintAuthority, eventAccount, mint, metadata, tokenAccount, tokenMetadataProgram, payer, masterEdition, eventHost, eventHostKey, adminAccount, adminKey, customSplToken, customSplTokenProgram, senderCustomSplTokenAta, hostCustomSplTokenAta, adminCustomTokenAta, associatedTokenProgram, } = accounts;
-    const [data] = mintTicketStruct.serialize({
-        instructionDiscriminator: mintTicketInstructionDiscriminator,
-    });
+    const [data] = exports.mintTicketStruct.serialize(Object.assign({ instructionDiscriminator: exports.mintTicketInstructionDiscriminator }, args));
     const keys = [
         {
             pubkey: mintAuthority,
@@ -162,7 +166,7 @@ function createMintTicketInstruction(accounts) {
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo'),
+        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
         keys,
         data,
     });

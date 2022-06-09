@@ -5,8 +5,8 @@ import { getAllEvents } from "../src/helpers/getAllEvents";
 import * as anchor from "@project-serum/anchor";
 import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
 import { Program } from "@project-serum/anchor";
-import { idl, PROGRAM_ID } from "../src";
-const v8 = require("v8");
+import { idl } from "../src/idl";
+import { PROGRAM_ID } from '../src'
 describe("get all accounts", () => {
   false &&
     it("should get all account info", async () => {
