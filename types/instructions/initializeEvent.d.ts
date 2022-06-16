@@ -4,6 +4,7 @@
  *
  * See: https://github.com/metaplex-foundation/solita
  */
+import * as beet from '@metaplex-foundation/beet';
 import * as web3 from '@solana/web3.js';
 import { CreateEventInput } from '../types/CreateEventInput';
 /**
@@ -15,7 +16,19 @@ export declare type InitializeEventInstructionArgs = {
     createEventInfo: CreateEventInput;
 };
 /**
+ * @category Instructions
+ * @category InitializeEvent
+ * @category generated
+ */
+export declare const initializeEventStruct: beet.FixableBeetArgsStruct<InitializeEventInstructionArgs & {
+    instructionDiscriminator: number[];
+}>;
+/**
  * Accounts required by the _initializeEvent_ instruction
+ *
+ * @property [_writable_] eventAccount
+ * @property [_writable_, **signer**] authority
+ * @property [_writable_] eventHostAccount
  * @category Instructions
  * @category InitializeEvent
  * @category generated
@@ -25,6 +38,7 @@ export declare type InitializeEventInstructionAccounts = {
     authority: web3.PublicKey;
     eventHostAccount: web3.PublicKey;
 };
+export declare const initializeEventInstructionDiscriminator: number[];
 /**
  * Creates a _InitializeEvent_ instruction.
  *

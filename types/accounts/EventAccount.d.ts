@@ -112,16 +112,24 @@ export declare class EventAccount implements EventAccountArgs {
         description: string;
         uri: string;
         link: string;
-        fee: any;
-        seats: any;
-        occupiedSeats: any;
+        fee: number | {
+            toNumber: () => number;
+        };
+        seats: number | {
+            toNumber: () => number;
+        };
+        occupiedSeats: number | {
+            toNumber: () => number;
+        };
         date: string;
         collection: string;
         venue: string;
         authority: string;
         creators: web3.PublicKey[];
         eventHost: EventHost;
-        eventNonce: any;
+        eventNonce: number | {
+            toNumber: () => number;
+        };
         bump: number;
         isCutPayedByCreator: boolean;
         isCustomSplToken: boolean;

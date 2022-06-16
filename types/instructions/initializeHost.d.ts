@@ -4,6 +4,7 @@
  *
  * See: https://github.com/metaplex-foundation/solita
  */
+import * as beet from '@metaplex-foundation/beet';
 import * as web3 from '@solana/web3.js';
 /**
  * @category Instructions
@@ -15,7 +16,18 @@ export declare type InitializeHostInstructionArgs = {
     profileImg: string;
 };
 /**
+ * @category Instructions
+ * @category InitializeHost
+ * @category generated
+ */
+export declare const initializeHostStruct: beet.FixableBeetArgsStruct<InitializeHostInstructionArgs & {
+    instructionDiscriminator: number[];
+}>;
+/**
  * Accounts required by the _initializeHost_ instruction
+ *
+ * @property [_writable_] eventHostAccount
+ * @property [_writable_, **signer**] authority
  * @category Instructions
  * @category InitializeHost
  * @category generated
@@ -24,6 +36,7 @@ export declare type InitializeHostInstructionAccounts = {
     eventHostAccount: web3.PublicKey;
     authority: web3.PublicKey;
 };
+export declare const initializeHostInstructionDiscriminator: number[];
 /**
  * Creates a _InitializeHost_ instruction.
  *

@@ -4,9 +4,45 @@
  *
  * See: https://github.com/metaplex-foundation/solita
  */
+import * as beet from '@metaplex-foundation/beet';
 import * as web3 from '@solana/web3.js';
 /**
+ * @category Instructions
+ * @category MintTicket
+ * @category generated
+ */
+export declare type MintTicketInstructionArgs = {
+    uri: string;
+};
+/**
+ * @category Instructions
+ * @category MintTicket
+ * @category generated
+ */
+export declare const mintTicketStruct: beet.FixableBeetArgsStruct<MintTicketInstructionArgs & {
+    instructionDiscriminator: number[];
+}>;
+/**
  * Accounts required by the _mintTicket_ instruction
+ *
+ * @property [_writable_, **signer**] mintAuthority
+ * @property [_writable_] eventAccount
+ * @property [_writable_, **signer**] mint
+ * @property [_writable_] metadata
+ * @property [_writable_] tokenAccount
+ * @property [] tokenMetadataProgram
+ * @property [_writable_] payer
+ * @property [_writable_] masterEdition
+ * @property [_writable_] eventHost
+ * @property [_writable_] eventHostKey
+ * @property [_writable_] adminAccount
+ * @property [_writable_] adminKey
+ * @property [_writable_] customSplToken
+ * @property [] customSplTokenProgram
+ * @property [_writable_] senderCustomSplTokenAta
+ * @property [_writable_] hostCustomSplTokenAta
+ * @property [_writable_] adminCustomTokenAta
+ * @property [] associatedTokenProgram
  * @category Instructions
  * @category MintTicket
  * @category generated
@@ -31,13 +67,15 @@ export declare type MintTicketInstructionAccounts = {
     adminCustomTokenAta: web3.PublicKey;
     associatedTokenProgram: web3.PublicKey;
 };
+export declare const mintTicketInstructionDiscriminator: number[];
 /**
  * Creates a _MintTicket_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
+ * @param args to provide as instruction data to the program
  *
  * @category Instructions
  * @category MintTicket
  * @category generated
  */
-export declare function createMintTicketInstruction(accounts: MintTicketInstructionAccounts): web3.TransactionInstruction;
+export declare function createMintTicketInstruction(accounts: MintTicketInstructionAccounts, args: MintTicketInstructionArgs): web3.TransactionInstruction;

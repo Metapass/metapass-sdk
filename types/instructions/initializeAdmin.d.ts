@@ -5,6 +5,7 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 import * as web3 from '@solana/web3.js';
+import * as beet from '@metaplex-foundation/beet';
 /**
  * @category Instructions
  * @category InitializeAdmin
@@ -14,7 +15,18 @@ export declare type InitializeAdminInstructionArgs = {
     admins: web3.PublicKey[];
 };
 /**
+ * @category Instructions
+ * @category InitializeAdmin
+ * @category generated
+ */
+export declare const initializeAdminStruct: beet.FixableBeetArgsStruct<InitializeAdminInstructionArgs & {
+    instructionDiscriminator: number[];
+}>;
+/**
  * Accounts required by the _initializeAdmin_ instruction
+ *
+ * @property [_writable_] adminAccount
+ * @property [_writable_, **signer**] adminAuthority
  * @category Instructions
  * @category InitializeAdmin
  * @category generated
@@ -23,6 +35,7 @@ export declare type InitializeAdminInstructionAccounts = {
     adminAccount: web3.PublicKey;
     adminAuthority: web3.PublicKey;
 };
+export declare const initializeAdminInstructionDiscriminator: number[];
 /**
  * Creates a _InitializeAdmin_ instruction.
  *

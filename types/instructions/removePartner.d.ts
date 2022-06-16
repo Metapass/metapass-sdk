@@ -5,6 +5,7 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 import * as web3 from '@solana/web3.js';
+import * as beet from '@metaplex-foundation/beet';
 /**
  * @category Instructions
  * @category RemovePartner
@@ -14,7 +15,18 @@ export declare type RemovePartnerInstructionArgs = {
     address: web3.PublicKey;
 };
 /**
+ * @category Instructions
+ * @category RemovePartner
+ * @category generated
+ */
+export declare const removePartnerStruct: beet.BeetArgsStruct<RemovePartnerInstructionArgs & {
+    instructionDiscriminator: number[];
+}>;
+/**
  * Accounts required by the _removePartner_ instruction
+ *
+ * @property [_writable_] adminAccount
+ * @property [_writable_, **signer**] adminAuthority
  * @category Instructions
  * @category RemovePartner
  * @category generated
@@ -23,6 +35,7 @@ export declare type RemovePartnerInstructionAccounts = {
     adminAccount: web3.PublicKey;
     adminAuthority: web3.PublicKey;
 };
+export declare const removePartnerInstructionDiscriminator: number[];
 /**
  * Creates a _RemovePartner_ instruction.
  *
