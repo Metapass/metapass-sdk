@@ -32,13 +32,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getEvent = void 0;
 const anchor = __importStar(require("@project-serum/anchor"));
-const __1 = require("..");
-const idl = require("../idl/idl.json");
+const web3_js_1 = require("@solana/web3.js");
+const idl_1 = require("../idl");
 const getEvent = (eventPDA, provider) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (eventPDA && provider) {
-            const program = new anchor.Program(idl, __1.PROGRAM_ID, provider);
+            const program = new anchor.Program(idl_1.idl, new web3_js_1.PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"), provider);
             const eventData = yield program.account.eventAccount.fetch(eventPDA);
             return eventData;
         }
@@ -51,4 +52,4 @@ const getEvent = (eventPDA, provider) => __awaiter(void 0, void 0, void 0, funct
         console.log("Ping us in our discord server, devs wil definitely do something :)");
     }
 });
-exports.default = getEvent;
+exports.getEvent = getEvent;

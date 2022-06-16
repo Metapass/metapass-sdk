@@ -9,13 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const __1 = require("..");
+exports.getAllEvents = void 0;
+const web3_js_1 = require("@solana/web3.js");
 const accounts_1 = require("../accounts");
 const getAllEvents = (connection) => __awaiter(void 0, void 0, void 0, function* () {
     let events = [];
     try {
-        const accounts = yield connection.getProgramAccounts(__1.PROGRAM_ID);
-        accounts.forEach((account) => {
+        const accounts = yield connection.getProgramAccounts(new web3_js_1.PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"));
+        accounts.map((account) => {
             try {
                 events.push(accounts_1.EventAccount.fromAccountInfo(account.account)[0]);
             }
@@ -29,4 +30,4 @@ const getAllEvents = (connection) => __awaiter(void 0, void 0, void 0, function*
     }
     return events;
 });
-exports.default = getAllEvents;
+exports.getAllEvents = getAllEvents;

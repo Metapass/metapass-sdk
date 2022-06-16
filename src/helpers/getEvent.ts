@@ -1,16 +1,19 @@
 import * as anchor from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
-import { PROGRAM_ID } from "..";
-const idl: anchor.Idl = require("../idl/idl.json");
 
+import { idl } from "../idl";
 
-const getEvent = async (
+export const getEvent = async (
   eventPDA: PublicKey,
   provider: anchor.AnchorProvider
 ) => {
   try {
     if (eventPDA && provider) {
-      const program = new anchor.Program(idl, PROGRAM_ID, provider);
+      const program = new anchor.Program(
+        idl as anchor.Idl,
+        new PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"),
+        provider
+      );
       const eventData = await program.account.eventAccount.fetch(eventPDA);
       return eventData;
     } else throw new Error("eventPDA or provider is undefined");
@@ -23,4 +26,3 @@ const getEvent = async (
     );
   }
 };
-export default getEvent;

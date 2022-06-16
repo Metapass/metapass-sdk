@@ -32,11 +32,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getHostPDA = void 0;
 const web3_js_1 = require("@solana/web3.js");
 const anchor = __importStar(require("@project-serum/anchor"));
-const __1 = require("..");
+// import { PROGRAM_ID } from "..";
 const getHostPDA = (hostKey) => __awaiter(void 0, void 0, void 0, function* () {
-    const [hostPda, _] = yield web3_js_1.PublicKey.findProgramAddress([anchor.utils.bytes.utf8.encode("event-host-key"), hostKey.toBuffer()], __1.PROGRAM_ID);
+    const [hostPda, _] = yield web3_js_1.PublicKey.findProgramAddress([anchor.utils.bytes.utf8.encode("event-host-key"), hostKey.toBuffer()], new web3_js_1.PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"));
     return hostPda;
 });
-exports.default = getHostPDA;
+exports.getHostPDA = getHostPDA;
