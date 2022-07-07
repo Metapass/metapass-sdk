@@ -1,4 +1,5 @@
 import { Connection, PublicKey } from "@solana/web3.js";
+import { PROGRAM_ID } from "..";
 
 import { EventAccount } from "../accounts";
 
@@ -7,9 +8,7 @@ export const getAllEvents = async (
 ): Promise<Array<EventAccount>> => {
   let events: EventAccount[] = [];
   try {
-    const accounts = await connection.getProgramAccounts(
-      new PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo")
-    );
+    const accounts = await connection.getProgramAccounts(PROGRAM_ID);
     accounts.map((account) => {
       try {
         events.push(EventAccount.fromAccountInfo(account.account)[0]);
