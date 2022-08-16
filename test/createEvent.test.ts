@@ -13,6 +13,7 @@ describe("create event", () => {
   it("should create an event", async () => {
     const key = Keypair.generate();
     const wallet = new NodeWallet(key);
+
     const provider = new anchor.AnchorProvider(
       new Connection("https://api.devnet.solana.com"),
       wallet,
@@ -20,19 +21,32 @@ describe("create event", () => {
         preflightCommitment: "recent",
       }
     );
+    try {
+      console.log(wallet.publicKey.toBase58());
+      await provider.connection.requestAirdrop(
+        wallet.publicKey,
+        2 * LAMPORTS_PER_SOL
+      );
+    } catch (error) {
+      console.log("🔴", error);
+    }
+    console.log(
+      await provider.connection.getBalance(wallet.publicKey),
+      "funds"
+    );
     const publicKey = wallet.publicKey;
-    const getHostPDA = async () => {
-      if (publicKey) {
-        const [hostPDA, hostBump] = await PublicKey.findProgramAddress(
-          [
-            anchor.utils.bytes.utf8.encode("event-host-key"),
-            publicKey.toBuffer(),
-          ],
-          PROGRAM_ID
-        );
+    if (!wallet.publicKey) return;
 
-        return hostPDA;
-      }
+    const getHostPDA = async () => {
+      const [hostPDA, hostBump] = await PublicKey.findProgramAddress(
+        [
+          anchor.utils.bytes.utf8.encode("event-host-key"),
+          publicKey.toBuffer(),
+        ],
+        PROGRAM_ID
+      );
+
+      return hostPDA;
     };
     const getEventPDA = async (nonce: number) => {
       const [eventPDA, _] = await PublicKey.findProgramAddress(
@@ -73,24 +87,17 @@ describe("create event", () => {
     const txnInstruction = createInitializeEventInstruction(accounts, {
       createEventInfo: transactionData,
     });
-    // try {
-    //   console.log(wallet.publicKey.toBase58());
-    //   await provider.connection.requestAirdrop(
-    //     wallet.publicKey,
-    //     1 * LAMPORTS_PER_SOL
-    //   );
-    // } catch (error) {
-    //   console.log("🔴", error);
-    // }
-    // console.log(
-    //   await provider.connection.getBalance(wallet.publicKey),
-    //   "funds"
-    // );
+
+    console.log(
+      await provider.connection.getBalance(wallet.publicKey),
+      "funds"
+    );
     const transaction = new Transaction().add(txnInstruction);
     try {
-      await provider.connection.sendTransaction(transaction, [key], {
-        preflightCommitment: "recent",
+      const tx = await provider.connection.sendTransaction(transaction, [key], {
+        preflightCommitment: "confirmed",
       });
+      console.log(tx, "tx");
     } catch (error) {
       console.log("⚡️", error);
     }

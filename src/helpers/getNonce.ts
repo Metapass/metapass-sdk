@@ -1,5 +1,6 @@
 import * as anchor from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
+import { PROGRAM_ID } from "..";
 // import { PROGRAM_ID } from "..";
 import { idl } from "../idl";
 
@@ -11,7 +12,7 @@ export const getNonce = async (
     if (hostPDA && provider) {
       const program = new anchor.Program(
         idl as anchor.Idl,
-        new PublicKey("Crvo7H5Qupi7pD63wyyXfoPbzAkU9Hbqwno7xTrXLbKo"),
+        PROGRAM_ID,
         provider
       );
       const hostData = await program.account.eventHostAccount.fetch(hostPDA);
