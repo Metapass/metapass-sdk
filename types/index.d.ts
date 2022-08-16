@@ -4,6 +4,7 @@ export * from "./errors";
 export * from "./instructions";
 export * from "./types";
 export * from "./helpers";
+export * from "./idl";
 /**
  * Program address
  *
