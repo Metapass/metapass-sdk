@@ -1,3 +1,4 @@
+
 import { PublicKey } from "@solana/web3.js";
 export * from "./accounts";
 export * from "./instructions";
@@ -11,6 +12,7 @@ export * from "./idl";
  * @category constants
  * @category generated
  */
+
 export const PROGRAM_ADDRESS = "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK";
 
 /**

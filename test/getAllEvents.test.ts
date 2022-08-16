@@ -6,6 +6,7 @@ import * as anchor from "@project-serum/anchor";
 import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
 import { Program } from "@project-serum/anchor";
 import { idl } from "../src/idl";
+
 import { PROGRAM_ID } from "../src";
 describe.skip("get all accounts", () => {
   it("should get all account info", async () => {

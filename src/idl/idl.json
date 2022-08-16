@@ -466,26 +466,24 @@
           }
         ]
       }
-    }
-  ],
-  "errors": [
-    {
-      "code": 6000,
-      "name": "InvalidCustomSplToken",
-      "msg": "Custom SPL Token doesnt match with Host provided token"
     },
     {
-      "code": 6001,
-      "name": "SignerNotAdmin",
-      "msg": "The Signer of this transaction is not the admin"
-    },
-    {
-      "code": 6002,
-      "name": "DataNotUpdated",
-      "msg": "data not updated"
+      "name": "CustomErrorCodes",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "InvalidCustomSplToken"
+          },
+          {
+            "name": "SignerNotAdmin"
+          },
+          {
+            "name": "DataNotUpdated"
+          }
+        ]
+      }
     }
-  ],
-  "metadata": {
-    "address": "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK"
-  }
+  ]
 }
+
