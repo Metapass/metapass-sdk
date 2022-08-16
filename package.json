@@ -1,6 +1,6 @@
 {
   "name": "metapass-sdk",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Metapass SDK for hosting events on Solana",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
