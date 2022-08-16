@@ -46,4 +46,4 @@ export declare const removePartnerInstructionDiscriminator: number[];
  * @category RemovePartner
  * @category generated
  */
-export declare function createRemovePartnerInstruction(accounts: RemovePartnerInstructionAccounts, args: RemovePartnerInstructionArgs): web3.TransactionInstruction;
+export declare function createRemovePartnerInstruction(accounts: RemovePartnerInstructionAccounts, args: RemovePartnerInstructionArgs, programId?: web3.PublicKey): web3.TransactionInstruction;

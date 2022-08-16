@@ -46,6 +46,7 @@ export const initializeHostStruct = new beet.FixableBeetArgsStruct<
 export type InitializeHostInstructionAccounts = {
   eventHostAccount: web3.PublicKey
   authority: web3.PublicKey
+  systemProgram?: web3.PublicKey
 }
 
 export const initializeHostInstructionDiscriminator = [
@@ -64,36 +65,33 @@ export const initializeHostInstructionDiscriminator = [
  */
 export function createInitializeHostInstruction(
   accounts: InitializeHostInstructionAccounts,
-  args: InitializeHostInstructionArgs
+  args: InitializeHostInstructionArgs,
+  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
 ) {
-  const { eventHostAccount, authority } = accounts
-
   const [data] = initializeHostStruct.serialize({
     instructionDiscriminator: initializeHostInstructionDiscriminator,
     ...args,
   })
   const keys: web3.AccountMeta[] = [
     {
-      pubkey: eventHostAccount,
+      pubkey: accounts.eventHostAccount,
       isWritable: true,
       isSigner: false,
     },
     {
-      pubkey: authority,
+      pubkey: accounts.authority,
       isWritable: true,
       isSigner: true,
     },
     {
-      pubkey: web3.SystemProgram.programId,
+      pubkey: accounts.systemProgram ?? web3.SystemProgram.programId,
       isWritable: false,
       isSigner: false,
     },
   ]
 
   const ix = new web3.TransactionInstruction({
-    programId: new web3.PublicKey(
-      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
-    ),
+    programId,
     keys,
     data,
   })

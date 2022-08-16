@@ -37,6 +37,7 @@ export declare type InitializeEventInstructionAccounts = {
     eventAccount: web3.PublicKey;
     authority: web3.PublicKey;
     eventHostAccount: web3.PublicKey;
+    systemProgram?: web3.PublicKey;
 };
 export declare const initializeEventInstructionDiscriminator: number[];
 /**
@@ -49,4 +50,4 @@ export declare const initializeEventInstructionDiscriminator: number[];
  * @category InitializeEvent
  * @category generated
  */
-export declare function createInitializeEventInstruction(accounts: InitializeEventInstructionAccounts, args: InitializeEventInstructionArgs): web3.TransactionInstruction;
+export declare function createInitializeEventInstruction(accounts: InitializeEventInstructionAccounts, args: InitializeEventInstructionArgs, programId?: web3.PublicKey): web3.TransactionInstruction;

@@ -61,7 +61,7 @@ export declare const idl: {
             })[];
         };
     }[];
-    types: ({
+    types: {
         name: string;
         type: {
             kind: string;
@@ -74,16 +74,14 @@ export declare const idl: {
                 name: string;
                 type: string;
             })[];
-            variants?: undefined;
         };
-    } | {
+    }[];
+    errors: {
+        code: number;
         name: string;
-        type: {
-            kind: string;
-            variants: {
-                name: string;
-            }[];
-            fields?: undefined;
-        };
-    })[];
+        msg: string;
+    }[];
+    metadata: {
+        address: string;
+    };
 };

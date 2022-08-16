@@ -21,7 +21,7 @@ export type AdminAccountArgs = {
   verifiedPartners: web3.PublicKey[]
 }
 
-const adminAccountDiscriminator = [153, 119, 180, 178, 43, 66, 235, 148]
+export const adminAccountDiscriminator = [153, 119, 180, 178, 43, 66, 235, 148]
 /**
  * Holds the data for the {@link AdminAccount} Account and provides de/serialization
  * functionality for that data
@@ -75,6 +75,20 @@ export class AdminAccount implements AdminAccountArgs {
       throw new Error(`Unable to find AdminAccount account at ${address}`)
     }
     return AdminAccount.fromAccountInfo(accountInfo, 0)[0]
+  }
+
+  /**
+   * Provides a {@link web3.Connection.getProgramAccounts} config builder,
+   * to fetch accounts matching filters that can be specified via that builder.
+   *
+   * @param programId - the program that owns the accounts we are filtering
+   */
+  static gpaBuilder(
+    programId: web3.PublicKey = new web3.PublicKey(
+      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
+    )
+  ) {
+    return beetSolana.GpaBuilder.fromStruct(programId, adminAccountBeet)
   }
 
   /**

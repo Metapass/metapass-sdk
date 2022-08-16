@@ -35,6 +35,7 @@ export declare const initializeHostStruct: beet.FixableBeetArgsStruct<Initialize
 export declare type InitializeHostInstructionAccounts = {
     eventHostAccount: web3.PublicKey;
     authority: web3.PublicKey;
+    systemProgram?: web3.PublicKey;
 };
 export declare const initializeHostInstructionDiscriminator: number[];
 /**
@@ -47,4 +48,4 @@ export declare const initializeHostInstructionDiscriminator: number[];
  * @category InitializeHost
  * @category generated
  */
-export declare function createInitializeHostInstruction(accounts: InitializeHostInstructionAccounts, args: InitializeHostInstructionArgs): web3.TransactionInstruction;
+export declare function createInitializeHostInstruction(accounts: InitializeHostInstructionAccounts, args: InitializeHostInstructionArgs, programId?: web3.PublicKey): web3.TransactionInstruction;

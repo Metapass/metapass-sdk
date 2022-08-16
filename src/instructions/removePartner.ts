@@ -63,31 +63,28 @@ export const removePartnerInstructionDiscriminator = [
  */
 export function createRemovePartnerInstruction(
   accounts: RemovePartnerInstructionAccounts,
-  args: RemovePartnerInstructionArgs
+  args: RemovePartnerInstructionArgs,
+  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
 ) {
-  const { adminAccount, adminAuthority } = accounts
-
   const [data] = removePartnerStruct.serialize({
     instructionDiscriminator: removePartnerInstructionDiscriminator,
     ...args,
   })
   const keys: web3.AccountMeta[] = [
     {
-      pubkey: adminAccount,
+      pubkey: accounts.adminAccount,
       isWritable: true,
       isSigner: false,
     },
     {
-      pubkey: adminAuthority,
+      pubkey: accounts.adminAuthority,
       isWritable: true,
       isSigner: true,
     },
   ]
 
   const ix = new web3.TransactionInstruction({
-    programId: new web3.PublicKey(
-      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
-    ),
+    programId,
     keys,
     data,
   })

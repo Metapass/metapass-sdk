@@ -8,22 +8,22 @@ import * as beet from '@metaplex-foundation/beet';
 import * as web3 from '@solana/web3.js';
 /**
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export declare type MintTicketInstructionArgs = {
+export declare type MintTicketForFreeInstructionArgs = {
     uri: string;
 };
 /**
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export declare const mintTicketStruct: beet.FixableBeetArgsStruct<MintTicketInstructionArgs & {
+export declare const mintTicketForFreeStruct: beet.FixableBeetArgsStruct<MintTicketForFreeInstructionArgs & {
     instructionDiscriminator: number[];
 }>;
 /**
- * Accounts required by the _mintTicket_ instruction
+ * Accounts required by the _mintTicketForFree_ instruction
  *
  * @property [_writable_, **signer**] mintAuthority
  * @property [_writable_] eventAccount
@@ -37,17 +37,12 @@ export declare const mintTicketStruct: beet.FixableBeetArgsStruct<MintTicketInst
  * @property [_writable_] eventHostKey
  * @property [_writable_] adminAccount
  * @property [_writable_] adminKey
- * @property [_writable_] customSplToken
- * @property [] customSplTokenProgram
- * @property [_writable_] senderCustomSplTokenAta
- * @property [_writable_] hostCustomSplTokenAta
- * @property [_writable_] adminCustomTokenAta
  * @property [] associatedTokenProgram
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export declare type MintTicketInstructionAccounts = {
+export declare type MintTicketForFreeInstructionAccounts = {
     mintAuthority: web3.PublicKey;
     eventAccount: web3.PublicKey;
     mint: web3.PublicKey;
@@ -63,22 +58,17 @@ export declare type MintTicketInstructionAccounts = {
     eventHostKey: web3.PublicKey;
     adminAccount: web3.PublicKey;
     adminKey: web3.PublicKey;
-    customSplToken: web3.PublicKey;
-    customSplTokenProgram: web3.PublicKey;
-    senderCustomSplTokenAta: web3.PublicKey;
-    hostCustomSplTokenAta: web3.PublicKey;
-    adminCustomTokenAta: web3.PublicKey;
     associatedTokenProgram: web3.PublicKey;
 };
-export declare const mintTicketInstructionDiscriminator: number[];
+export declare const mintTicketForFreeInstructionDiscriminator: number[];
 /**
- * Creates a _MintTicket_ instruction.
+ * Creates a _MintTicketForFree_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
  * @param args to provide as instruction data to the program
  *
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export declare function createMintTicketInstruction(accounts: MintTicketInstructionAccounts, args: MintTicketInstructionArgs, programId?: web3.PublicKey): web3.TransactionInstruction;
+export declare function createMintTicketForFreeInstruction(accounts: MintTicketForFreeInstructionAccounts, args: MintTicketForFreeInstructionArgs, programId?: web3.PublicKey): web3.TransactionInstruction;

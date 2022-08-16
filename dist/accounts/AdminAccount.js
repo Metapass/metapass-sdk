@@ -38,10 +38,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.adminAccountBeet = exports.AdminAccount = void 0;
+exports.adminAccountBeet = exports.AdminAccount = exports.adminAccountDiscriminator = void 0;
+const web3 = __importStar(require("@solana/web3.js"));
 const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
 const beet = __importStar(require("@metaplex-foundation/beet"));
-const adminAccountDiscriminator = [153, 119, 180, 178, 43, 66, 235, 148];
+exports.adminAccountDiscriminator = [153, 119, 180, 178, 43, 66, 235, 148];
 /**
  * Holds the data for the {@link AdminAccount} Account and provides de/serialization
  * functionality for that data
@@ -85,6 +86,15 @@ class AdminAccount {
         });
     }
     /**
+     * Provides a {@link web3.Connection.getProgramAccounts} config builder,
+     * to fetch accounts matching filters that can be specified via that builder.
+     *
+     * @param programId - the program that owns the accounts we are filtering
+     */
+    static gpaBuilder(programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+        return beetSolana.GpaBuilder.fromStruct(programId, exports.adminAccountBeet);
+    }
+    /**
      * Deserializes the {@link AdminAccount} from the provided data Buffer.
      * @returns a tuple of the account data and the offset up to which the buffer was read to obtain it.
      */
@@ -96,7 +106,7 @@ class AdminAccount {
      * @returns a tuple of the created Buffer and the offset up to which the buffer was written to store it.
      */
     serialize() {
-        return exports.adminAccountBeet.serialize(Object.assign({ accountDiscriminator: adminAccountDiscriminator }, this));
+        return exports.adminAccountBeet.serialize(Object.assign({ accountDiscriminator: exports.adminAccountDiscriminator }, this));
     }
     /**
      * Returns the byteSize of a {@link Buffer} holding the serialized data of
@@ -107,7 +117,7 @@ class AdminAccount {
      */
     static byteSize(args) {
         const instance = AdminAccount.fromArgs(args);
-        return exports.adminAccountBeet.toFixedFromValue(Object.assign({ accountDiscriminator: adminAccountDiscriminator }, instance)).byteSize;
+        return exports.adminAccountBeet.toFixedFromValue(Object.assign({ accountDiscriminator: exports.adminAccountDiscriminator }, instance)).byteSize;
     }
     /**
      * Fetches the minimum balance needed to exempt an account holding

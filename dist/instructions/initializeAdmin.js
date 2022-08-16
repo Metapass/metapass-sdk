@@ -55,28 +55,28 @@ exports.initializeAdminInstructionDiscriminator = [
  * @category InitializeAdmin
  * @category generated
  */
-function createInitializeAdminInstruction(accounts, args) {
-    const { adminAccount, adminAuthority } = accounts;
+function createInitializeAdminInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+    var _a;
     const [data] = exports.initializeAdminStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeAdminInstructionDiscriminator }, args));
     const keys = [
         {
-            pubkey: adminAccount,
+            pubkey: accounts.adminAccount,
             isWritable: true,
             isSigner: false,
         },
         {
-            pubkey: adminAuthority,
+            pubkey: accounts.adminAuthority,
             isWritable: true,
             isSigner: true,
         },
         {
-            pubkey: web3.SystemProgram.programId,
+            pubkey: (_a = accounts.systemProgram) !== null && _a !== void 0 ? _a : web3.SystemProgram.programId,
             isWritable: false,
             isSigner: false,
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
+        programId,
         keys,
         data,
     });

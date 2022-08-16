@@ -38,11 +38,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.eventAccountBeet = exports.EventAccount = void 0;
+exports.eventAccountBeet = exports.EventAccount = exports.eventAccountDiscriminator = void 0;
 const beet = __importStar(require("@metaplex-foundation/beet"));
+const web3 = __importStar(require("@solana/web3.js"));
 const beetSolana = __importStar(require("@metaplex-foundation/beet-solana"));
 const EventHost_1 = require("../types/EventHost");
-const eventAccountDiscriminator = [98, 136, 32, 165, 133, 231, 243, 154];
+exports.eventAccountDiscriminator = [98, 136, 32, 165, 133, 231, 243, 154];
 /**
  * Holds the data for the {@link EventAccount} Account and provides de/serialization
  * functionality for that data
@@ -100,6 +101,15 @@ class EventAccount {
         });
     }
     /**
+     * Provides a {@link web3.Connection.getProgramAccounts} config builder,
+     * to fetch accounts matching filters that can be specified via that builder.
+     *
+     * @param programId - the program that owns the accounts we are filtering
+     */
+    static gpaBuilder(programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+        return beetSolana.GpaBuilder.fromStruct(programId, exports.eventAccountBeet);
+    }
+    /**
      * Deserializes the {@link EventAccount} from the provided data Buffer.
      * @returns a tuple of the account data and the offset up to which the buffer was read to obtain it.
      */
@@ -111,7 +121,7 @@ class EventAccount {
      * @returns a tuple of the created Buffer and the offset up to which the buffer was written to store it.
      */
     serialize() {
-        return exports.eventAccountBeet.serialize(Object.assign({ accountDiscriminator: eventAccountDiscriminator }, this));
+        return exports.eventAccountBeet.serialize(Object.assign({ accountDiscriminator: exports.eventAccountDiscriminator }, this));
     }
     /**
      * Returns the byteSize of a {@link Buffer} holding the serialized data of
@@ -122,7 +132,7 @@ class EventAccount {
      */
     static byteSize(args) {
         const instance = EventAccount.fromArgs(args);
-        return exports.eventAccountBeet.toFixedFromValue(Object.assign({ accountDiscriminator: eventAccountDiscriminator }, instance)).byteSize;
+        return exports.eventAccountBeet.toFixedFromValue(Object.assign({ accountDiscriminator: exports.eventAccountDiscriminator }, instance)).byteSize;
     }
     /**
      * Fetches the minimum balance needed to exempt an account holding

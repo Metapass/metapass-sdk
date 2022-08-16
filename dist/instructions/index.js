@@ -19,4 +19,5 @@ __exportStar(require("./initializeAdmin"), exports);
 __exportStar(require("./initializeEvent"), exports);
 __exportStar(require("./initializeHost"), exports);
 __exportStar(require("./mintTicket"), exports);
+__exportStar(require("./mintTicketForFree"), exports);
 __exportStar(require("./removePartner"), exports);

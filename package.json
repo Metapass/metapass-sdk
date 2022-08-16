@@ -19,8 +19,8 @@
   "author": "Daksh Kulshrestha",
   "license": "MIT",
   "dependencies": {
-    "@metaplex-foundation/beet": "^0.2.0",
-    "@metaplex-foundation/beet-solana": "^0.1.1",
+    "@metaplex-foundation/beet": "0.4.0",
+    "@metaplex-foundation/beet-solana": "0.3.0",
     "@project-serum/anchor": "^0.24.2",
     "@solana/spl-token": "^0.2.0",
     "@solana/web3.js": "^1.42.0",

@@ -45,6 +45,7 @@ export const initializeAdminStruct = new beet.FixableBeetArgsStruct<
 export type InitializeAdminInstructionAccounts = {
   adminAccount: web3.PublicKey
   adminAuthority: web3.PublicKey
+  systemProgram?: web3.PublicKey
 }
 
 export const initializeAdminInstructionDiscriminator = [
@@ -63,36 +64,33 @@ export const initializeAdminInstructionDiscriminator = [
  */
 export function createInitializeAdminInstruction(
   accounts: InitializeAdminInstructionAccounts,
-  args: InitializeAdminInstructionArgs
+  args: InitializeAdminInstructionArgs,
+  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
 ) {
-  const { adminAccount, adminAuthority } = accounts
-
   const [data] = initializeAdminStruct.serialize({
     instructionDiscriminator: initializeAdminInstructionDiscriminator,
     ...args,
   })
   const keys: web3.AccountMeta[] = [
     {
-      pubkey: adminAccount,
+      pubkey: accounts.adminAccount,
       isWritable: true,
       isSigner: false,
     },
     {
-      pubkey: adminAuthority,
+      pubkey: accounts.adminAuthority,
       isWritable: true,
       isSigner: true,
     },
     {
-      pubkey: web3.SystemProgram.programId,
+      pubkey: accounts.systemProgram ?? web3.SystemProgram.programId,
       isWritable: false,
       isSigner: false,
     },
   ]
 
   const ix = new web3.TransactionInstruction({
-    programId: new web3.PublicKey(
-      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
-    ),
+    programId,
     keys,
     data,
   })

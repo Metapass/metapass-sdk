@@ -1,9 +1,8 @@
-import { PublicKey } from "@solana/web3.js";
-export * from "./accounts";
-export * from "./instructions";
-export * from "./types";
-export * from "./helpers";
-export * from "./idl";
+import { PublicKey } from '@solana/web3.js';
+export * from './accounts';
+export * from './errors';
+export * from './instructions';
+export * from './types';
 /**
  * Program address
  *

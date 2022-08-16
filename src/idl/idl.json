@@ -182,6 +182,97 @@
       ]
     },
     {
+      "name": "mintTicketForFree",
+      "accounts": [
+        {
+          "name": "mintAuthority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "eventAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "metadata",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenMetadataProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "masterEdition",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "eventHost",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "eventHostKey",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "adminAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "adminKey",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "uri",
+          "type": "string"
+        }
+      ]
+    },
+    {
       "name": "initializeAdmin",
       "accounts": [
         {
@@ -466,24 +557,31 @@
           }
         ]
       }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidCustomSplToken",
+      "msg": "Custom SPL Token doesnt match with Host provided token"
     },
     {
-      "name": "CustomErrorCodes",
-      "type": {
-        "kind": "enum",
-        "variants": [
-          {
-            "name": "InvalidCustomSplToken"
-          },
-          {
-            "name": "SignerNotAdmin"
-          },
-          {
-            "name": "DataNotUpdated"
-          }
-        ]
-      }
+      "code": 6001,
+      "name": "SignerNotAdmin",
+      "msg": "The Signer of this transaction is not the admin"
+    },
+    {
+      "code": 6002,
+      "name": "DataNotUpdated",
+      "msg": "data not updated"
+    },
+    {
+      "code": 6003,
+      "name": "WrongInstruction",
+      "msg": "This event is paid but the mint ix is for free tickets"
     }
-  ]
+  ],
+  "metadata": {
+    "address": "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK"
+  }
 }
-

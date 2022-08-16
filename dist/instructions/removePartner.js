@@ -55,23 +55,22 @@ exports.removePartnerInstructionDiscriminator = [
  * @category RemovePartner
  * @category generated
  */
-function createRemovePartnerInstruction(accounts, args) {
-    const { adminAccount, adminAuthority } = accounts;
+function createRemovePartnerInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
     const [data] = exports.removePartnerStruct.serialize(Object.assign({ instructionDiscriminator: exports.removePartnerInstructionDiscriminator }, args));
     const keys = [
         {
-            pubkey: adminAccount,
+            pubkey: accounts.adminAccount,
             isWritable: true,
             isSigner: false,
         },
         {
-            pubkey: adminAuthority,
+            pubkey: accounts.adminAuthority,
             isWritable: true,
             isSigner: true,
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
+        programId,
         keys,
         data,
     });

@@ -50,6 +50,7 @@ export type InitializeEventInstructionAccounts = {
   eventAccount: web3.PublicKey
   authority: web3.PublicKey
   eventHostAccount: web3.PublicKey
+  systemProgram?: web3.PublicKey
 }
 
 export const initializeEventInstructionDiscriminator = [
@@ -68,41 +69,38 @@ export const initializeEventInstructionDiscriminator = [
  */
 export function createInitializeEventInstruction(
   accounts: InitializeEventInstructionAccounts,
-  args: InitializeEventInstructionArgs
+  args: InitializeEventInstructionArgs,
+  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
 ) {
-  const { eventAccount, authority, eventHostAccount } = accounts
-
   const [data] = initializeEventStruct.serialize({
     instructionDiscriminator: initializeEventInstructionDiscriminator,
     ...args,
   })
   const keys: web3.AccountMeta[] = [
     {
-      pubkey: eventAccount,
+      pubkey: accounts.eventAccount,
       isWritable: true,
       isSigner: false,
     },
     {
-      pubkey: authority,
+      pubkey: accounts.authority,
       isWritable: true,
       isSigner: true,
     },
     {
-      pubkey: eventHostAccount,
+      pubkey: accounts.eventHostAccount,
       isWritable: true,
       isSigner: false,
     },
     {
-      pubkey: web3.SystemProgram.programId,
+      pubkey: accounts.systemProgram ?? web3.SystemProgram.programId,
       isWritable: false,
       isSigner: false,
     },
   ]
 
   const ix = new web3.TransactionInstruction({
-    programId: new web3.PublicKey(
-      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
-    ),
+    programId,
     keys,
     data,
   })

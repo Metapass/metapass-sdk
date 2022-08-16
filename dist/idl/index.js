@@ -2,490 +2,589 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.idl = void 0;
 exports.idl = {
-    "version": "0.1.0",
-    "name": "metapass_program",
-    "instructions": [
+    version: "0.1.0",
+    name: "metapass_program",
+    instructions: [
         {
-            "name": "initializeHost",
-            "accounts": [
+            name: "initializeHost",
+            accounts: [
                 {
-                    "name": "eventHostAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "eventHostAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "authority",
-                    "isMut": true,
-                    "isSigner": true
+                    name: "authority",
+                    isMut: true,
+                    isSigner: true,
                 },
                 {
-                    "name": "systemProgram",
-                    "isMut": false,
-                    "isSigner": false
-                }
+                    name: "systemProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
             ],
-            "args": [
+            args: [
                 {
-                    "name": "displayName",
-                    "type": "string"
+                    name: "displayName",
+                    type: "string",
                 },
                 {
-                    "name": "profileImg",
-                    "type": "string"
-                }
-            ]
+                    name: "profileImg",
+                    type: "string",
+                },
+            ],
         },
         {
-            "name": "initializeEvent",
-            "accounts": [
+            name: "initializeEvent",
+            accounts: [
                 {
-                    "name": "eventAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "eventAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "authority",
-                    "isMut": true,
-                    "isSigner": true
+                    name: "authority",
+                    isMut: true,
+                    isSigner: true,
                 },
                 {
-                    "name": "eventHostAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "eventHostAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "systemProgram",
-                    "isMut": false,
-                    "isSigner": false
-                }
+                    name: "systemProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
             ],
-            "args": [
+            args: [
                 {
-                    "name": "createEventInfo",
-                    "type": {
-                        "defined": "CreateEventInput"
-                    }
-                }
-            ]
+                    name: "createEventInfo",
+                    type: {
+                        defined: "CreateEventInput",
+                    },
+                },
+            ],
         },
         {
-            "name": "mintTicket",
-            "accounts": [
+            name: "mintTicket",
+            accounts: [
                 {
-                    "name": "mintAuthority",
-                    "isMut": true,
-                    "isSigner": true
+                    name: "mintAuthority",
+                    isMut: true,
+                    isSigner: true,
                 },
                 {
-                    "name": "eventAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "eventAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "mint",
-                    "isMut": true,
-                    "isSigner": true
+                    name: "mint",
+                    isMut: true,
+                    isSigner: true,
                 },
                 {
-                    "name": "tokenProgram",
-                    "isMut": false,
-                    "isSigner": false
+                    name: "tokenProgram",
+                    isMut: false,
+                    isSigner: false,
                 },
                 {
-                    "name": "metadata",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "metadata",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "tokenAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "tokenAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "tokenMetadataProgram",
-                    "isMut": false,
-                    "isSigner": false
+                    name: "tokenMetadataProgram",
+                    isMut: false,
+                    isSigner: false,
                 },
                 {
-                    "name": "payer",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "payer",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "systemProgram",
-                    "isMut": false,
-                    "isSigner": false
+                    name: "systemProgram",
+                    isMut: false,
+                    isSigner: false,
                 },
                 {
-                    "name": "rent",
-                    "isMut": false,
-                    "isSigner": false
+                    name: "rent",
+                    isMut: false,
+                    isSigner: false,
                 },
                 {
-                    "name": "masterEdition",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "masterEdition",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "eventHost",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "eventHost",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "eventHostKey",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "eventHostKey",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "adminAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "adminAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "adminKey",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "adminKey",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "customSplToken",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "customSplToken",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "customSplTokenProgram",
-                    "isMut": false,
-                    "isSigner": false
+                    name: "customSplTokenProgram",
+                    isMut: false,
+                    isSigner: false,
                 },
                 {
-                    "name": "senderCustomSplTokenAta",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "senderCustomSplTokenAta",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "hostCustomSplTokenAta",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "hostCustomSplTokenAta",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "adminCustomTokenAta",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "adminCustomTokenAta",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "associatedTokenProgram",
-                    "isMut": false,
-                    "isSigner": false
-                }
+                    name: "associatedTokenProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
             ],
-            "args": [
+            args: [
                 {
-                    "name": "uri",
-                    "type": "string"
-                }
-            ]
+                    name: "uri",
+                    type: "string",
+                },
+            ],
         },
         {
-            "name": "initializeAdmin",
-            "accounts": [
+            name: "mintTicketForFree",
+            accounts: [
                 {
-                    "name": "adminAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "mintAuthority",
+                    isMut: true,
+                    isSigner: true,
                 },
                 {
-                    "name": "adminAuthority",
-                    "isMut": true,
-                    "isSigner": true
+                    name: "eventAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "systemProgram",
-                    "isMut": false,
-                    "isSigner": false
-                }
+                    name: "mint",
+                    isMut: true,
+                    isSigner: true,
+                },
+                {
+                    name: "tokenProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "metadata",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "tokenAccount",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "tokenMetadataProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "payer",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "systemProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "rent",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "masterEdition",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "eventHost",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "eventHostKey",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "adminAccount",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "adminKey",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "associatedTokenProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
             ],
-            "args": [
+            args: [
                 {
-                    "name": "admins",
-                    "type": {
-                        "vec": "publicKey"
-                    }
-                }
-            ]
+                    name: "uri",
+                    type: "string",
+                },
+            ],
         },
         {
-            "name": "addPartners",
-            "accounts": [
+            name: "initializeAdmin",
+            accounts: [
                 {
-                    "name": "adminAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "adminAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "adminAuthority",
-                    "isMut": true,
-                    "isSigner": true
-                }
-            ],
-            "args": [
+                    name: "adminAuthority",
+                    isMut: true,
+                    isSigner: true,
+                },
                 {
-                    "name": "partner",
-                    "type": "publicKey"
-                }
-            ]
+                    name: "systemProgram",
+                    isMut: false,
+                    isSigner: false,
+                },
+            ],
+            args: [
+                {
+                    name: "admins",
+                    type: {
+                        vec: "publicKey",
+                    },
+                },
+            ],
         },
         {
-            "name": "removePartner",
-            "accounts": [
+            name: "addPartners",
+            accounts: [
                 {
-                    "name": "adminAccount",
-                    "isMut": true,
-                    "isSigner": false
+                    name: "adminAccount",
+                    isMut: true,
+                    isSigner: false,
                 },
                 {
-                    "name": "adminAuthority",
-                    "isMut": true,
-                    "isSigner": true
-                }
+                    name: "adminAuthority",
+                    isMut: true,
+                    isSigner: true,
+                },
             ],
-            "args": [
+            args: [
                 {
-                    "name": "address",
-                    "type": "publicKey"
-                }
-            ]
-        }
+                    name: "partner",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "removePartner",
+            accounts: [
+                {
+                    name: "adminAccount",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "adminAuthority",
+                    isMut: true,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "address",
+                    type: "publicKey",
+                },
+            ],
+        },
     ],
-    "accounts": [
+    accounts: [
         {
-            "name": "EventAccount",
-            "type": {
-                "kind": "struct",
-                "fields": [
+            name: "EventAccount",
+            type: {
+                kind: "struct",
+                fields: [
                     {
-                        "name": "title",
-                        "type": "string"
+                        name: "title",
+                        type: "string",
                     },
                     {
-                        "name": "description",
-                        "type": "string"
+                        name: "description",
+                        type: "string",
                     },
                     {
-                        "name": "uri",
-                        "type": "string"
+                        name: "uri",
+                        type: "string",
                     },
                     {
-                        "name": "link",
-                        "type": "string"
+                        name: "link",
+                        type: "string",
                     },
                     {
-                        "name": "fee",
-                        "type": "u64"
+                        name: "fee",
+                        type: "u64",
                     },
                     {
-                        "name": "seats",
-                        "type": "u64"
+                        name: "seats",
+                        type: "u64",
                     },
                     {
-                        "name": "occupiedSeats",
-                        "type": "u64"
+                        name: "occupiedSeats",
+                        type: "u64",
                     },
                     {
-                        "name": "date",
-                        "type": "string"
+                        name: "date",
+                        type: "string",
                     },
                     {
-                        "name": "collection",
-                        "type": "publicKey"
+                        name: "collection",
+                        type: "publicKey",
                     },
                     {
-                        "name": "venue",
-                        "type": "string"
+                        name: "venue",
+                        type: "string",
                     },
                     {
-                        "name": "authority",
-                        "type": "publicKey"
+                        name: "authority",
+                        type: "publicKey",
                     },
                     {
-                        "name": "creators",
-                        "type": {
-                            "vec": "publicKey"
-                        }
+                        name: "creators",
+                        type: {
+                            vec: "publicKey",
+                        },
                     },
                     {
-                        "name": "eventHost",
-                        "type": {
-                            "defined": "EventHost"
-                        }
+                        name: "eventHost",
+                        type: {
+                            defined: "EventHost",
+                        },
                     },
                     {
-                        "name": "eventNonce",
-                        "type": "u64"
+                        name: "eventNonce",
+                        type: "u64",
                     },
                     {
-                        "name": "bump",
-                        "type": "u8"
+                        name: "bump",
+                        type: "u8",
                     },
                     {
-                        "name": "isCutPayedByCreator",
-                        "type": "bool"
+                        name: "isCutPayedByCreator",
+                        type: "bool",
                     },
                     {
-                        "name": "isCustomSplToken",
-                        "type": "bool"
+                        name: "isCustomSplToken",
+                        type: "bool",
                     },
                     {
-                        "name": "customSplToken",
-                        "type": "publicKey"
-                    }
-                ]
-            }
+                        name: "customSplToken",
+                        type: "publicKey",
+                    },
+                ],
+            },
         },
         {
-            "name": "EventHostAccount",
-            "type": {
-                "kind": "struct",
-                "fields": [
+            name: "EventHostAccount",
+            type: {
+                kind: "struct",
+                fields: [
                     {
-                        "name": "eventHostStruct",
-                        "type": {
-                            "defined": "EventHost"
-                        }
-                    }
-                ]
-            }
+                        name: "eventHostStruct",
+                        type: {
+                            defined: "EventHost",
+                        },
+                    },
+                ],
+            },
         },
         {
-            "name": "AdminAccount",
-            "type": {
-                "kind": "struct",
-                "fields": [
+            name: "AdminAccount",
+            type: {
+                kind: "struct",
+                fields: [
                     {
-                        "name": "admins",
-                        "type": {
-                            "vec": "publicKey"
-                        }
+                        name: "admins",
+                        type: {
+                            vec: "publicKey",
+                        },
                     },
                     {
-                        "name": "bump",
-                        "type": "u8"
+                        name: "bump",
+                        type: "u8",
                     },
                     {
-                        "name": "authority",
-                        "type": "publicKey"
+                        name: "authority",
+                        type: "publicKey",
                     },
                     {
-                        "name": "verifiedPartners",
-                        "type": {
-                            "vec": "publicKey"
-                        }
-                    }
-                ]
-            }
-        }
+                        name: "verifiedPartners",
+                        type: {
+                            vec: "publicKey",
+                        },
+                    },
+                ],
+            },
+        },
     ],
-    "types": [
+    types: [
         {
-            "name": "EventHost",
-            "type": {
-                "kind": "struct",
-                "fields": [
+            name: "EventHost",
+            type: {
+                kind: "struct",
+                fields: [
                     {
-                        "name": "eventsCreated",
-                        "type": {
-                            "vec": "publicKey"
-                        }
+                        name: "eventsCreated",
+                        type: {
+                            vec: "publicKey",
+                        },
                     },
                     {
-                        "name": "displayName",
-                        "type": "string"
+                        name: "displayName",
+                        type: "string",
                     },
                     {
-                        "name": "pubKey",
-                        "type": "publicKey"
+                        name: "pubKey",
+                        type: "publicKey",
                     },
                     {
-                        "name": "profileImage",
-                        "type": "string"
+                        name: "profileImage",
+                        type: "string",
                     },
                     {
-                        "name": "eventCount",
-                        "type": "u64"
+                        name: "eventCount",
+                        type: "u64",
                     },
                     {
-                        "name": "bump",
-                        "type": "u8"
-                    }
-                ]
-            }
+                        name: "bump",
+                        type: "u8",
+                    },
+                ],
+            },
         },
         {
-            "name": "CreateEventInput",
-            "type": {
-                "kind": "struct",
-                "fields": [
+            name: "CreateEventInput",
+            type: {
+                kind: "struct",
+                fields: [
                     {
-                        "name": "title",
-                        "type": "string"
+                        name: "title",
+                        type: "string",
                     },
                     {
-                        "name": "description",
-                        "type": "string"
+                        name: "description",
+                        type: "string",
                     },
                     {
-                        "name": "uri",
-                        "type": "string"
+                        name: "uri",
+                        type: "string",
                     },
                     {
-                        "name": "link",
-                        "type": "string"
+                        name: "link",
+                        type: "string",
                     },
                     {
-                        "name": "fee",
-                        "type": "u64"
+                        name: "fee",
+                        type: "u64",
                     },
                     {
-                        "name": "seats",
-                        "type": "u64"
+                        name: "seats",
+                        type: "u64",
                     },
                     {
-                        "name": "date",
-                        "type": "string"
+                        name: "date",
+                        type: "string",
                     },
                     {
-                        "name": "venue",
-                        "type": "string"
+                        name: "venue",
+                        type: "string",
                     },
                     {
-                        "name": "isCutPayedByCreator",
-                        "type": "bool"
+                        name: "isCutPayedByCreator",
+                        type: "bool",
                     },
                     {
-                        "name": "isCustomSplToken",
-                        "type": "bool"
+                        name: "isCustomSplToken",
+                        type: "bool",
                     },
                     {
-                        "name": "customSplToken",
-                        "type": "publicKey"
-                    }
-                ]
-            }
+                        name: "customSplToken",
+                        type: "publicKey",
+                    },
+                ],
+            },
+        },
+    ],
+    errors: [
+        {
+            code: 6000,
+            name: "InvalidCustomSplToken",
+            msg: "Custom SPL Token doesnt match with Host provided token",
         },
         {
-            "name": "CustomErrorCodes",
-            "type": {
-                "kind": "enum",
-                "variants": [
-                    {
-                        "name": "InvalidCustomSplToken"
-                    },
-                    {
-                        "name": "SignerNotAdmin"
-                    },
-                    {
-                        "name": "DataNotUpdated"
-                    }
-                ]
-            }
-        }
-    ]
+            code: 6001,
+            name: "SignerNotAdmin",
+            msg: "The Signer of this transaction is not the admin",
+        },
+        {
+            code: 6002,
+            name: "DataNotUpdated",
+            msg: "data not updated",
+        },
+        {
+            code: 6003,
+            name: "WrongInstruction",
+            msg: "This event is paid but the mint ix is for free tickets",
+        },
+    ],
+    metadata: {
+        address: "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK",
+    },
 };

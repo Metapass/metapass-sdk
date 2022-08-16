@@ -14,6 +14,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.accountProviders = void 0;
 __exportStar(require("./AdminAccount"), exports);
 __exportStar(require("./EventAccount"), exports);
 __exportStar(require("./EventHostAccount"), exports);
+const EventAccount_1 = require("./EventAccount");
+const EventHostAccount_1 = require("./EventHostAccount");
+const AdminAccount_1 = require("./AdminAccount");
+exports.accountProviders = { EventAccount: EventAccount_1.EventAccount, EventHostAccount: EventHostAccount_1.EventHostAccount, AdminAccount: AdminAccount_1.AdminAccount };

@@ -46,4 +46,4 @@ export declare const addPartnersInstructionDiscriminator: number[];
  * @category AddPartners
  * @category generated
  */
-export declare function createAddPartnersInstruction(accounts: AddPartnersInstructionAccounts, args: AddPartnersInstructionArgs): web3.TransactionInstruction;
+export declare function createAddPartnersInstruction(accounts: AddPartnersInstructionAccounts, args: AddPartnersInstructionArgs, programId?: web3.PublicKey): web3.TransactionInstruction;

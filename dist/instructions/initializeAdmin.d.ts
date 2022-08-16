@@ -34,6 +34,7 @@ export declare const initializeAdminStruct: beet.FixableBeetArgsStruct<Initializ
 export declare type InitializeAdminInstructionAccounts = {
     adminAccount: web3.PublicKey;
     adminAuthority: web3.PublicKey;
+    systemProgram?: web3.PublicKey;
 };
 export declare const initializeAdminInstructionDiscriminator: number[];
 /**
@@ -46,4 +47,4 @@ export declare const initializeAdminInstructionDiscriminator: number[];
  * @category InitializeAdmin
  * @category generated
  */
-export declare function createInitializeAdminInstruction(accounts: InitializeAdminInstructionAccounts, args: InitializeAdminInstructionArgs): web3.TransactionInstruction;
+export declare function createInitializeAdminInstruction(accounts: InitializeAdminInstructionAccounts, args: InitializeAdminInstructionArgs, programId?: web3.PublicKey): web3.TransactionInstruction;

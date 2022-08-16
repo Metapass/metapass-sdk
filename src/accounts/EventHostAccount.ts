@@ -7,6 +7,7 @@
 
 import * as web3 from '@solana/web3.js'
 import * as beet from '@metaplex-foundation/beet'
+import * as beetSolana from '@metaplex-foundation/beet-solana'
 import { EventHost, eventHostBeet } from '../types/EventHost'
 
 /**
@@ -18,7 +19,9 @@ export type EventHostAccountArgs = {
   eventHostStruct: EventHost
 }
 
-const eventHostAccountDiscriminator = [144, 192, 135, 201, 115, 11, 56, 111]
+export const eventHostAccountDiscriminator = [
+  144, 192, 135, 201, 115, 11, 56, 111,
+]
 /**
  * Holds the data for the {@link EventHostAccount} Account and provides de/serialization
  * functionality for that data
@@ -62,6 +65,20 @@ export class EventHostAccount implements EventHostAccountArgs {
       throw new Error(`Unable to find EventHostAccount account at ${address}`)
     }
     return EventHostAccount.fromAccountInfo(accountInfo, 0)[0]
+  }
+
+  /**
+   * Provides a {@link web3.Connection.getProgramAccounts} config builder,
+   * to fetch accounts matching filters that can be specified via that builder.
+   *
+   * @param programId - the program that owns the accounts we are filtering
+   */
+  static gpaBuilder(
+    programId: web3.PublicKey = new web3.PublicKey(
+      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
+    )
+  ) {
+    return beetSolana.GpaBuilder.fromStruct(programId, eventHostAccountBeet)
   }
 
   /**

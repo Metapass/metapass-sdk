@@ -29,35 +29,35 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createMintTicketInstruction = exports.mintTicketInstructionDiscriminator = exports.mintTicketStruct = void 0;
+exports.createMintTicketForFreeInstruction = exports.mintTicketForFreeInstructionDiscriminator = exports.mintTicketForFreeStruct = void 0;
 const splToken = __importStar(require("@solana/spl-token"));
 const beet = __importStar(require("@metaplex-foundation/beet"));
 const web3 = __importStar(require("@solana/web3.js"));
 /**
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-exports.mintTicketStruct = new beet.FixableBeetArgsStruct([
+exports.mintTicketForFreeStruct = new beet.FixableBeetArgsStruct([
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['uri', beet.utf8String],
-], 'MintTicketInstructionArgs');
-exports.mintTicketInstructionDiscriminator = [
-    159, 167, 223, 60, 138, 6, 23, 29,
+], 'MintTicketForFreeInstructionArgs');
+exports.mintTicketForFreeInstructionDiscriminator = [
+    241, 247, 24, 79, 169, 206, 190, 73,
 ];
 /**
- * Creates a _MintTicket_ instruction.
+ * Creates a _MintTicketForFree_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
  * @param args to provide as instruction data to the program
  *
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-function createMintTicketInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+function createMintTicketForFreeInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
     var _a, _b, _c;
-    const [data] = exports.mintTicketStruct.serialize(Object.assign({ instructionDiscriminator: exports.mintTicketInstructionDiscriminator }, args));
+    const [data] = exports.mintTicketForFreeStruct.serialize(Object.assign({ instructionDiscriminator: exports.mintTicketForFreeInstructionDiscriminator }, args));
     const keys = [
         {
             pubkey: accounts.mintAuthority,
@@ -135,31 +135,6 @@ function createMintTicketInstruction(accounts, args, programId = new web3.Public
             isSigner: false,
         },
         {
-            pubkey: accounts.customSplToken,
-            isWritable: true,
-            isSigner: false,
-        },
-        {
-            pubkey: accounts.customSplTokenProgram,
-            isWritable: false,
-            isSigner: false,
-        },
-        {
-            pubkey: accounts.senderCustomSplTokenAta,
-            isWritable: true,
-            isSigner: false,
-        },
-        {
-            pubkey: accounts.hostCustomSplTokenAta,
-            isWritable: true,
-            isSigner: false,
-        },
-        {
-            pubkey: accounts.adminCustomTokenAta,
-            isWritable: true,
-            isSigner: false,
-        },
-        {
             pubkey: accounts.associatedTokenProgram,
             isWritable: false,
             isSigner: false,
@@ -172,4 +147,4 @@ function createMintTicketInstruction(accounts, args, programId = new web3.Public
     });
     return ix;
 }
-exports.createMintTicketInstruction = createMintTicketInstruction;
+exports.createMintTicketForFreeInstruction = createMintTicketForFreeInstruction;

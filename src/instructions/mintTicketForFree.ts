@@ -11,19 +11,19 @@ import * as web3 from '@solana/web3.js'
 
 /**
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export type MintTicketInstructionArgs = {
+export type MintTicketForFreeInstructionArgs = {
   uri: string
 }
 /**
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export const mintTicketStruct = new beet.FixableBeetArgsStruct<
-  MintTicketInstructionArgs & {
+export const mintTicketForFreeStruct = new beet.FixableBeetArgsStruct<
+  MintTicketForFreeInstructionArgs & {
     instructionDiscriminator: number[] /* size: 8 */
   }
 >(
@@ -31,10 +31,10 @@ export const mintTicketStruct = new beet.FixableBeetArgsStruct<
     ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
     ['uri', beet.utf8String],
   ],
-  'MintTicketInstructionArgs'
+  'MintTicketForFreeInstructionArgs'
 )
 /**
- * Accounts required by the _mintTicket_ instruction
+ * Accounts required by the _mintTicketForFree_ instruction
  *
  * @property [_writable_, **signer**] mintAuthority
  * @property [_writable_] eventAccount
@@ -48,17 +48,12 @@ export const mintTicketStruct = new beet.FixableBeetArgsStruct<
  * @property [_writable_] eventHostKey
  * @property [_writable_] adminAccount
  * @property [_writable_] adminKey
- * @property [_writable_] customSplToken
- * @property [] customSplTokenProgram
- * @property [_writable_] senderCustomSplTokenAta
- * @property [_writable_] hostCustomSplTokenAta
- * @property [_writable_] adminCustomTokenAta
  * @property [] associatedTokenProgram
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export type MintTicketInstructionAccounts = {
+export type MintTicketForFreeInstructionAccounts = {
   mintAuthority: web3.PublicKey
   eventAccount: web3.PublicKey
   mint: web3.PublicKey
@@ -74,35 +69,30 @@ export type MintTicketInstructionAccounts = {
   eventHostKey: web3.PublicKey
   adminAccount: web3.PublicKey
   adminKey: web3.PublicKey
-  customSplToken: web3.PublicKey
-  customSplTokenProgram: web3.PublicKey
-  senderCustomSplTokenAta: web3.PublicKey
-  hostCustomSplTokenAta: web3.PublicKey
-  adminCustomTokenAta: web3.PublicKey
   associatedTokenProgram: web3.PublicKey
 }
 
-export const mintTicketInstructionDiscriminator = [
-  159, 167, 223, 60, 138, 6, 23, 29,
+export const mintTicketForFreeInstructionDiscriminator = [
+  241, 247, 24, 79, 169, 206, 190, 73,
 ]
 
 /**
- * Creates a _MintTicket_ instruction.
+ * Creates a _MintTicketForFree_ instruction.
  *
  * @param accounts that will be accessed while the instruction is processed
  * @param args to provide as instruction data to the program
  *
  * @category Instructions
- * @category MintTicket
+ * @category MintTicketForFree
  * @category generated
  */
-export function createMintTicketInstruction(
-  accounts: MintTicketInstructionAccounts,
-  args: MintTicketInstructionArgs,
+export function createMintTicketForFreeInstruction(
+  accounts: MintTicketForFreeInstructionAccounts,
+  args: MintTicketForFreeInstructionArgs,
   programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
 ) {
-  const [data] = mintTicketStruct.serialize({
-    instructionDiscriminator: mintTicketInstructionDiscriminator,
+  const [data] = mintTicketForFreeStruct.serialize({
+    instructionDiscriminator: mintTicketForFreeInstructionDiscriminator,
     ...args,
   })
   const keys: web3.AccountMeta[] = [
@@ -178,31 +168,6 @@ export function createMintTicketInstruction(
     },
     {
       pubkey: accounts.adminKey,
-      isWritable: true,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.customSplToken,
-      isWritable: true,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.customSplTokenProgram,
-      isWritable: false,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.senderCustomSplTokenAta,
-      isWritable: true,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.hostCustomSplTokenAta,
-      isWritable: true,
-      isSigner: false,
-    },
-    {
-      pubkey: accounts.adminCustomTokenAta,
       isWritable: true,
       isSigner: false,
     },

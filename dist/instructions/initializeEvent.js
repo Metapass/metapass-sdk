@@ -55,33 +55,33 @@ exports.initializeEventInstructionDiscriminator = [
  * @category InitializeEvent
  * @category generated
  */
-function createInitializeEventInstruction(accounts, args) {
-    const { eventAccount, authority, eventHostAccount } = accounts;
+function createInitializeEventInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+    var _a;
     const [data] = exports.initializeEventStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeEventInstructionDiscriminator }, args));
     const keys = [
         {
-            pubkey: eventAccount,
+            pubkey: accounts.eventAccount,
             isWritable: true,
             isSigner: false,
         },
         {
-            pubkey: authority,
+            pubkey: accounts.authority,
             isWritable: true,
             isSigner: true,
         },
         {
-            pubkey: eventHostAccount,
+            pubkey: accounts.eventHostAccount,
             isWritable: true,
             isSigner: false,
         },
         {
-            pubkey: web3.SystemProgram.programId,
+            pubkey: (_a = accounts.systemProgram) !== null && _a !== void 0 ? _a : web3.SystemProgram.programId,
             isWritable: false,
             isSigner: false,
         },
     ];
     const ix = new web3.TransactionInstruction({
-        programId: new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'),
+        programId,
         keys,
         data,
     });
