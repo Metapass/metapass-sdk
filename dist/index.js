@@ -19,13 +19,14 @@ const web3_js_1 = require("@solana/web3.js");
 __exportStar(require("./accounts"), exports);
 __exportStar(require("./instructions"), exports);
 __exportStar(require("./types"), exports);
+__exportStar(require("./helpers"), exports);
+__exportStar(require("./idl"), exports);
 /**
  * Program address
  *
  * @category constants
  * @category generated
  */
-
 exports.PROGRAM_ADDRESS = "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK";
 /**
  * Program public key
