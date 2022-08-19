@@ -9,7 +9,7 @@ import {
 import { createInitializeEventInstruction, PROGRAM_ID } from "../src";
 import * as anchor from "@project-serum/anchor";
 import NodeWallet from "@project-serum/anchor/dist/cjs/nodewallet";
-describe("create event", () => {
+describe.skip("create event", () => {
   it("should create an event", async () => {
     const key = Keypair.generate();
     const wallet = new NodeWallet(key);
