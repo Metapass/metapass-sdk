@@ -190,7 +190,7 @@ exports.idl = {
                 {
                     name: "mintAuthority",
                     isMut: true,
-                    isSigner: true,
+                    isSigner: false,
                 },
                 {
                     name: "eventAccount",
@@ -225,7 +225,7 @@ exports.idl = {
                 {
                     name: "payer",
                     isMut: true,
-                    isSigner: false,
+                    isSigner: true,
                 },
                 {
                     name: "systemProgram",
