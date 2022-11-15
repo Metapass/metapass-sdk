@@ -106,7 +106,7 @@ class EventAccount {
      *
      * @param programId - the program that owns the accounts we are filtering
      */
-    static gpaBuilder(programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+    static gpaBuilder(programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
         return beetSolana.GpaBuilder.fromStruct(programId, exports.eventAccountBeet);
     }
     /**
@@ -159,7 +159,7 @@ class EventAccount {
             link: this.link,
             fee: (() => {
                 const x = this.fee;
-                if (typeof x.toNumber === 'function') {
+                if (typeof x.toNumber === "function") {
                     try {
                         return x.toNumber();
                     }
@@ -171,7 +171,7 @@ class EventAccount {
             })(),
             seats: (() => {
                 const x = this.seats;
-                if (typeof x.toNumber === 'function') {
+                if (typeof x.toNumber === "function") {
                     try {
                         return x.toNumber();
                     }
@@ -183,7 +183,7 @@ class EventAccount {
             })(),
             occupiedSeats: (() => {
                 const x = this.occupiedSeats;
-                if (typeof x.toNumber === 'function') {
+                if (typeof x.toNumber === "function") {
                     try {
                         return x.toNumber();
                     }
@@ -201,7 +201,7 @@ class EventAccount {
             eventHost: this.eventHost,
             eventNonce: (() => {
                 const x = this.eventNonce;
-                if (typeof x.toNumber === 'function') {
+                if (typeof x.toNumber === "function") {
                     try {
                         return x.toNumber();
                     }
@@ -224,23 +224,23 @@ exports.EventAccount = EventAccount;
  * @category generated
  */
 exports.eventAccountBeet = new beet.FixableBeetStruct([
-    ['accountDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['title', beet.utf8String],
-    ['description', beet.utf8String],
-    ['uri', beet.utf8String],
-    ['link', beet.utf8String],
-    ['fee', beet.u64],
-    ['seats', beet.u64],
-    ['occupiedSeats', beet.u64],
-    ['date', beet.utf8String],
-    ['collection', beetSolana.publicKey],
-    ['venue', beet.utf8String],
-    ['authority', beetSolana.publicKey],
-    ['creators', beet.array(beetSolana.publicKey)],
-    ['eventHost', EventHost_1.eventHostBeet],
-    ['eventNonce', beet.u64],
-    ['bump', beet.u8],
-    ['isCutPayedByCreator', beet.bool],
-    ['isCustomSplToken', beet.bool],
-    ['customSplToken', beetSolana.publicKey],
-], EventAccount.fromArgs, 'EventAccount');
+    ["accountDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["title", beet.utf8String],
+    ["description", beet.utf8String],
+    ["uri", beet.utf8String],
+    ["link", beet.utf8String],
+    ["fee", beet.u64],
+    ["seats", beet.u64],
+    ["occupiedSeats", beet.u64],
+    ["date", beet.utf8String],
+    ["collection", beetSolana.publicKey],
+    ["venue", beet.utf8String],
+    ["authority", beetSolana.publicKey],
+    ["creators", beet.array(beetSolana.publicKey)],
+    ["eventHost", EventHost_1.eventHostBeet],
+    ["eventNonce", beet.u64],
+    ["bump", beet.u8],
+    ["isCutPayedByCreator", beet.bool],
+    ["isCustomSplToken", beet.bool],
+    ["customSplToken", beetSolana.publicKey],
+], EventAccount.fromArgs, "EventAccount");

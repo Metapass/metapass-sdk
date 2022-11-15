@@ -5,9 +5,9 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as web3 from '@solana/web3.js'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
-import * as beet from '@metaplex-foundation/beet'
+import * as web3 from "@solana/web3.js";
+import * as beetSolana from "@metaplex-foundation/beet-solana";
+import * as beet from "@metaplex-foundation/beet";
 
 /**
  * Arguments used to create {@link AdminAccount}
@@ -15,13 +15,13 @@ import * as beet from '@metaplex-foundation/beet'
  * @category generated
  */
 export type AdminAccountArgs = {
-  admins: web3.PublicKey[]
-  bump: number
-  authority: web3.PublicKey
-  verifiedPartners: web3.PublicKey[]
-}
+  admins: web3.PublicKey[];
+  bump: number;
+  authority: web3.PublicKey;
+  verifiedPartners: web3.PublicKey[];
+};
 
-export const adminAccountDiscriminator = [153, 119, 180, 178, 43, 66, 235, 148]
+export const adminAccountDiscriminator = [153, 119, 180, 178, 43, 66, 235, 148];
 /**
  * Holds the data for the {@link AdminAccount} Account and provides de/serialization
  * functionality for that data
@@ -46,7 +46,7 @@ export class AdminAccount implements AdminAccountArgs {
       args.bump,
       args.authority,
       args.verifiedPartners
-    )
+    );
   }
 
   /**
@@ -57,7 +57,7 @@ export class AdminAccount implements AdminAccountArgs {
     accountInfo: web3.AccountInfo<Buffer>,
     offset = 0
   ): [AdminAccount, number] {
-    return AdminAccount.deserialize(accountInfo.data, offset)
+    return AdminAccount.deserialize(accountInfo.data, offset);
   }
 
   /**
@@ -70,11 +70,11 @@ export class AdminAccount implements AdminAccountArgs {
     connection: web3.Connection,
     address: web3.PublicKey
   ): Promise<AdminAccount> {
-    const accountInfo = await connection.getAccountInfo(address)
+    const accountInfo = await connection.getAccountInfo(address);
     if (accountInfo == null) {
-      throw new Error(`Unable to find AdminAccount account at ${address}`)
+      throw new Error(`Unable to find AdminAccount account at ${address}`);
     }
-    return AdminAccount.fromAccountInfo(accountInfo, 0)[0]
+    return AdminAccount.fromAccountInfo(accountInfo, 0)[0];
   }
 
   /**
@@ -85,10 +85,10 @@ export class AdminAccount implements AdminAccountArgs {
    */
   static gpaBuilder(
     programId: web3.PublicKey = new web3.PublicKey(
-      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
+      "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN"
     )
   ) {
-    return beetSolana.GpaBuilder.fromStruct(programId, adminAccountBeet)
+    return beetSolana.GpaBuilder.fromStruct(programId, adminAccountBeet);
   }
 
   /**
@@ -96,7 +96,7 @@ export class AdminAccount implements AdminAccountArgs {
    * @returns a tuple of the account data and the offset up to which the buffer was read to obtain it.
    */
   static deserialize(buf: Buffer, offset = 0): [AdminAccount, number] {
-    return adminAccountBeet.deserialize(buf, offset)
+    return adminAccountBeet.deserialize(buf, offset);
   }
 
   /**
@@ -107,7 +107,7 @@ export class AdminAccount implements AdminAccountArgs {
     return adminAccountBeet.serialize({
       accountDiscriminator: adminAccountDiscriminator,
       ...this,
-    })
+    });
   }
 
   /**
@@ -118,11 +118,11 @@ export class AdminAccount implements AdminAccountArgs {
    * depends on them
    */
   static byteSize(args: AdminAccountArgs) {
-    const instance = AdminAccount.fromArgs(args)
+    const instance = AdminAccount.fromArgs(args);
     return adminAccountBeet.toFixedFromValue({
       accountDiscriminator: adminAccountDiscriminator,
       ...instance,
-    }).byteSize
+    }).byteSize;
   }
 
   /**
@@ -141,7 +141,7 @@ export class AdminAccount implements AdminAccountArgs {
     return connection.getMinimumBalanceForRentExemption(
       AdminAccount.byteSize(args),
       commitment
-    )
+    );
   }
 
   /**
@@ -154,7 +154,7 @@ export class AdminAccount implements AdminAccountArgs {
       bump: this.bump,
       authority: this.authority.toBase58(),
       verifiedPartners: this.verifiedPartners,
-    }
+    };
   }
 }
 
@@ -165,16 +165,16 @@ export class AdminAccount implements AdminAccountArgs {
 export const adminAccountBeet = new beet.FixableBeetStruct<
   AdminAccount,
   AdminAccountArgs & {
-    accountDiscriminator: number[] /* size: 8 */
+    accountDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['accountDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['admins', beet.array(beetSolana.publicKey)],
-    ['bump', beet.u8],
-    ['authority', beetSolana.publicKey],
-    ['verifiedPartners', beet.array(beetSolana.publicKey)],
+    ["accountDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["admins", beet.array(beetSolana.publicKey)],
+    ["bump", beet.u8],
+    ["authority", beetSolana.publicKey],
+    ["verifiedPartners", beet.array(beetSolana.publicKey)],
   ],
   AdminAccount.fromArgs,
-  'AdminAccount'
-)
+  "AdminAccount"
+);

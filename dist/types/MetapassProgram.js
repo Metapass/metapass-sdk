@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.idl = void 0;
-exports.idl = {
+exports.IDL = void 0;
+exports.IDL = {
     version: "0.1.0",
     name: "metapass_program",
     instructions: [
@@ -213,12 +213,7 @@ exports.idl = {
                     isSigner: false,
                 },
                 {
-                    name: "payerTokenAccount",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "attendeeTokenAccount",
+                    name: "tokenAccount",
                     isMut: true,
                     isSigner: false,
                 },
@@ -353,7 +348,7 @@ exports.idl = {
     ],
     accounts: [
         {
-            name: "EventAccount",
+            name: "eventAccount",
             type: {
                 kind: "struct",
                 fields: [
@@ -437,7 +432,7 @@ exports.idl = {
             },
         },
         {
-            name: "EventHostAccount",
+            name: "eventHostAccount",
             type: {
                 kind: "struct",
                 fields: [
@@ -451,7 +446,7 @@ exports.idl = {
             },
         },
         {
-            name: "AdminAccount",
+            name: "adminAccount",
             type: {
                 kind: "struct",
                 fields: [
@@ -589,7 +584,4 @@ exports.idl = {
             msg: "This event is paid but the mint ix is for free tickets",
         },
     ],
-    metadata: {
-        address: "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN",
-    },
 };

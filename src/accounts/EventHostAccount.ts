@@ -5,10 +5,10 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as web3 from '@solana/web3.js'
-import * as beet from '@metaplex-foundation/beet'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
-import { EventHost, eventHostBeet } from '../types/EventHost'
+import * as web3 from "@solana/web3.js";
+import * as beet from "@metaplex-foundation/beet";
+import * as beetSolana from "@metaplex-foundation/beet-solana";
+import { EventHost, eventHostBeet } from "../types/EventHost";
 
 /**
  * Arguments used to create {@link EventHostAccount}
@@ -16,12 +16,12 @@ import { EventHost, eventHostBeet } from '../types/EventHost'
  * @category generated
  */
 export type EventHostAccountArgs = {
-  eventHostStruct: EventHost
-}
+  eventHostStruct: EventHost;
+};
 
 export const eventHostAccountDiscriminator = [
   144, 192, 135, 201, 115, 11, 56, 111,
-]
+];
 /**
  * Holds the data for the {@link EventHostAccount} Account and provides de/serialization
  * functionality for that data
@@ -36,7 +36,7 @@ export class EventHostAccount implements EventHostAccountArgs {
    * Creates a {@link EventHostAccount} instance from the provided args.
    */
   static fromArgs(args: EventHostAccountArgs) {
-    return new EventHostAccount(args.eventHostStruct)
+    return new EventHostAccount(args.eventHostStruct);
   }
 
   /**
@@ -47,7 +47,7 @@ export class EventHostAccount implements EventHostAccountArgs {
     accountInfo: web3.AccountInfo<Buffer>,
     offset = 0
   ): [EventHostAccount, number] {
-    return EventHostAccount.deserialize(accountInfo.data, offset)
+    return EventHostAccount.deserialize(accountInfo.data, offset);
   }
 
   /**
@@ -60,11 +60,11 @@ export class EventHostAccount implements EventHostAccountArgs {
     connection: web3.Connection,
     address: web3.PublicKey
   ): Promise<EventHostAccount> {
-    const accountInfo = await connection.getAccountInfo(address)
+    const accountInfo = await connection.getAccountInfo(address);
     if (accountInfo == null) {
-      throw new Error(`Unable to find EventHostAccount account at ${address}`)
+      throw new Error(`Unable to find EventHostAccount account at ${address}`);
     }
-    return EventHostAccount.fromAccountInfo(accountInfo, 0)[0]
+    return EventHostAccount.fromAccountInfo(accountInfo, 0)[0];
   }
 
   /**
@@ -75,10 +75,10 @@ export class EventHostAccount implements EventHostAccountArgs {
    */
   static gpaBuilder(
     programId: web3.PublicKey = new web3.PublicKey(
-      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
+      "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN"
     )
   ) {
-    return beetSolana.GpaBuilder.fromStruct(programId, eventHostAccountBeet)
+    return beetSolana.GpaBuilder.fromStruct(programId, eventHostAccountBeet);
   }
 
   /**
@@ -86,7 +86,7 @@ export class EventHostAccount implements EventHostAccountArgs {
    * @returns a tuple of the account data and the offset up to which the buffer was read to obtain it.
    */
   static deserialize(buf: Buffer, offset = 0): [EventHostAccount, number] {
-    return eventHostAccountBeet.deserialize(buf, offset)
+    return eventHostAccountBeet.deserialize(buf, offset);
   }
 
   /**
@@ -97,7 +97,7 @@ export class EventHostAccount implements EventHostAccountArgs {
     return eventHostAccountBeet.serialize({
       accountDiscriminator: eventHostAccountDiscriminator,
       ...this,
-    })
+    });
   }
 
   /**
@@ -108,11 +108,11 @@ export class EventHostAccount implements EventHostAccountArgs {
    * depends on them
    */
   static byteSize(args: EventHostAccountArgs) {
-    const instance = EventHostAccount.fromArgs(args)
+    const instance = EventHostAccount.fromArgs(args);
     return eventHostAccountBeet.toFixedFromValue({
       accountDiscriminator: eventHostAccountDiscriminator,
       ...instance,
-    }).byteSize
+    }).byteSize;
   }
 
   /**
@@ -131,7 +131,7 @@ export class EventHostAccount implements EventHostAccountArgs {
     return connection.getMinimumBalanceForRentExemption(
       EventHostAccount.byteSize(args),
       commitment
-    )
+    );
   }
 
   /**
@@ -141,7 +141,7 @@ export class EventHostAccount implements EventHostAccountArgs {
   pretty() {
     return {
       eventHostStruct: this.eventHostStruct,
-    }
+    };
   }
 }
 
@@ -152,13 +152,13 @@ export class EventHostAccount implements EventHostAccountArgs {
 export const eventHostAccountBeet = new beet.FixableBeetStruct<
   EventHostAccount,
   EventHostAccountArgs & {
-    accountDiscriminator: number[] /* size: 8 */
+    accountDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['accountDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['eventHostStruct', eventHostBeet],
+    ["accountDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["eventHostStruct", eventHostBeet],
   ],
   EventHostAccount.fromArgs,
-  'EventHostAccount'
-)
+  "EventHostAccount"
+);

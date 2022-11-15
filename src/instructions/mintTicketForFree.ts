@@ -5,9 +5,9 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as splToken from '@solana/spl-token'
-import * as beet from '@metaplex-foundation/beet'
-import * as web3 from '@solana/web3.js'
+import * as splToken from "@solana/spl-token";
+import * as beet from "@metaplex-foundation/beet";
+import * as web3 from "@solana/web3.js";
 
 /**
  * @category Instructions
@@ -15,8 +15,8 @@ import * as web3 from '@solana/web3.js'
  * @category generated
  */
 export type MintTicketForFreeInstructionArgs = {
-  uri: string
-}
+  uri: string;
+};
 /**
  * @category Instructions
  * @category MintTicketForFree
@@ -24,15 +24,15 @@ export type MintTicketForFreeInstructionArgs = {
  */
 export const mintTicketForFreeStruct = new beet.FixableBeetArgsStruct<
   MintTicketForFreeInstructionArgs & {
-    instructionDiscriminator: number[] /* size: 8 */
+    instructionDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['uri', beet.utf8String],
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["uri", beet.utf8String],
   ],
-  'MintTicketForFreeInstructionArgs'
-)
+  "MintTicketForFreeInstructionArgs"
+);
 /**
  * Accounts required by the _mintTicketForFree_ instruction
  *
@@ -54,27 +54,27 @@ export const mintTicketForFreeStruct = new beet.FixableBeetArgsStruct<
  * @category generated
  */
 export type MintTicketForFreeInstructionAccounts = {
-  mintAuthority: web3.PublicKey
-  eventAccount: web3.PublicKey
-  mint: web3.PublicKey
-  tokenProgram?: web3.PublicKey
-  metadata: web3.PublicKey
-  tokenAccount: web3.PublicKey
-  tokenMetadataProgram: web3.PublicKey
-  payer: web3.PublicKey
-  systemProgram?: web3.PublicKey
-  rent?: web3.PublicKey
-  masterEdition: web3.PublicKey
-  eventHost: web3.PublicKey
-  eventHostKey: web3.PublicKey
-  adminAccount: web3.PublicKey
-  adminKey: web3.PublicKey
-  associatedTokenProgram: web3.PublicKey
-}
+  mintAuthority: web3.PublicKey;
+  eventAccount: web3.PublicKey;
+  mint: web3.PublicKey;
+  tokenProgram?: web3.PublicKey;
+  metadata: web3.PublicKey;
+  tokenAccount: web3.PublicKey;
+  tokenMetadataProgram: web3.PublicKey;
+  payer: web3.PublicKey;
+  systemProgram?: web3.PublicKey;
+  rent?: web3.PublicKey;
+  masterEdition: web3.PublicKey;
+  eventHost: web3.PublicKey;
+  eventHostKey: web3.PublicKey;
+  adminAccount: web3.PublicKey;
+  adminKey: web3.PublicKey;
+  associatedTokenProgram: web3.PublicKey;
+};
 
 export const mintTicketForFreeInstructionDiscriminator = [
   241, 247, 24, 79, 169, 206, 190, 73,
-]
+];
 
 /**
  * Creates a _MintTicketForFree_ instruction.
@@ -89,12 +89,12 @@ export const mintTicketForFreeInstructionDiscriminator = [
 export function createMintTicketForFreeInstruction(
   accounts: MintTicketForFreeInstructionAccounts,
   args: MintTicketForFreeInstructionArgs,
-  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
+  programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")
 ) {
   const [data] = mintTicketForFreeStruct.serialize({
     instructionDiscriminator: mintTicketForFreeInstructionDiscriminator,
     ...args,
-  })
+  });
   const keys: web3.AccountMeta[] = [
     {
       pubkey: accounts.mintAuthority,
@@ -176,12 +176,12 @@ export function createMintTicketForFreeInstruction(
       isWritable: false,
       isSigner: false,
     },
-  ]
+  ];
 
   const ix = new web3.TransactionInstruction({
     programId,
     keys,
     data,
-  })
-  return ix
+  });
+  return ix;
 }

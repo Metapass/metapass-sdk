@@ -11,12 +11,11 @@ export * from "./idl";
  * @category constants
  * @category generated
  */
-export const PROGRAM_ADDRESS = "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN";
-
+export declare const PROGRAM_ADDRESS = "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN";
 /**
  * Program public key
  *
  * @category constants
  * @category generated
  */
-export const PROGRAM_ID = new PublicKey(PROGRAM_ADDRESS);
+export declare const PROGRAM_ID: PublicKey;

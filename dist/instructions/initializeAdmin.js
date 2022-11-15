@@ -39,9 +39,9 @@ const beet = __importStar(require("@metaplex-foundation/beet"));
  * @category generated
  */
 exports.initializeAdminStruct = new beet.FixableBeetArgsStruct([
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['admins', beet.array(beetSolana.publicKey)],
-], 'InitializeAdminInstructionArgs');
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["admins", beet.array(beetSolana.publicKey)],
+], "InitializeAdminInstructionArgs");
 exports.initializeAdminInstructionDiscriminator = [
     35, 176, 8, 143, 42, 160, 61, 158,
 ];
@@ -55,7 +55,7 @@ exports.initializeAdminInstructionDiscriminator = [
  * @category InitializeAdmin
  * @category generated
  */
-function createInitializeAdminInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+function createInitializeAdminInstruction(accounts, args, programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
     var _a;
     const [data] = exports.initializeAdminStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeAdminInstructionDiscriminator }, args));
     const keys = [

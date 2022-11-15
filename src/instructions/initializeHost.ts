@@ -5,8 +5,8 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as beet from '@metaplex-foundation/beet'
-import * as web3 from '@solana/web3.js'
+import * as beet from "@metaplex-foundation/beet";
+import * as web3 from "@solana/web3.js";
 
 /**
  * @category Instructions
@@ -14,9 +14,9 @@ import * as web3 from '@solana/web3.js'
  * @category generated
  */
 export type InitializeHostInstructionArgs = {
-  displayName: string
-  profileImg: string
-}
+  displayName: string;
+  profileImg: string;
+};
 /**
  * @category Instructions
  * @category InitializeHost
@@ -24,16 +24,16 @@ export type InitializeHostInstructionArgs = {
  */
 export const initializeHostStruct = new beet.FixableBeetArgsStruct<
   InitializeHostInstructionArgs & {
-    instructionDiscriminator: number[] /* size: 8 */
+    instructionDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['displayName', beet.utf8String],
-    ['profileImg', beet.utf8String],
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["displayName", beet.utf8String],
+    ["profileImg", beet.utf8String],
   ],
-  'InitializeHostInstructionArgs'
-)
+  "InitializeHostInstructionArgs"
+);
 /**
  * Accounts required by the _initializeHost_ instruction
  *
@@ -44,14 +44,14 @@ export const initializeHostStruct = new beet.FixableBeetArgsStruct<
  * @category generated
  */
 export type InitializeHostInstructionAccounts = {
-  eventHostAccount: web3.PublicKey
-  authority: web3.PublicKey
-  systemProgram?: web3.PublicKey
-}
+  eventHostAccount: web3.PublicKey;
+  authority: web3.PublicKey;
+  systemProgram?: web3.PublicKey;
+};
 
 export const initializeHostInstructionDiscriminator = [
   144, 209, 228, 75, 220, 241, 73, 77,
-]
+];
 
 /**
  * Creates a _InitializeHost_ instruction.
@@ -66,12 +66,12 @@ export const initializeHostInstructionDiscriminator = [
 export function createInitializeHostInstruction(
   accounts: InitializeHostInstructionAccounts,
   args: InitializeHostInstructionArgs,
-  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
+  programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")
 ) {
   const [data] = initializeHostStruct.serialize({
     instructionDiscriminator: initializeHostInstructionDiscriminator,
     ...args,
-  })
+  });
   const keys: web3.AccountMeta[] = [
     {
       pubkey: accounts.eventHostAccount,
@@ -88,12 +88,12 @@ export function createInitializeHostInstruction(
       isWritable: false,
       isSigner: false,
     },
-  ]
+  ];
 
   const ix = new web3.TransactionInstruction({
     programId,
     keys,
     data,
-  })
-  return ix
+  });
+  return ix;
 }

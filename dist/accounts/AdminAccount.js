@@ -91,7 +91,7 @@ class AdminAccount {
      *
      * @param programId - the program that owns the accounts we are filtering
      */
-    static gpaBuilder(programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+    static gpaBuilder(programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
         return beetSolana.GpaBuilder.fromStruct(programId, exports.adminAccountBeet);
     }
     /**
@@ -151,9 +151,9 @@ exports.AdminAccount = AdminAccount;
  * @category generated
  */
 exports.adminAccountBeet = new beet.FixableBeetStruct([
-    ['accountDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['admins', beet.array(beetSolana.publicKey)],
-    ['bump', beet.u8],
-    ['authority', beetSolana.publicKey],
-    ['verifiedPartners', beet.array(beetSolana.publicKey)],
-], AdminAccount.fromArgs, 'AdminAccount');
+    ["accountDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["admins", beet.array(beetSolana.publicKey)],
+    ["bump", beet.u8],
+    ["authority", beetSolana.publicKey],
+    ["verifiedPartners", beet.array(beetSolana.publicKey)],
+], AdminAccount.fromArgs, "AdminAccount");

@@ -38,10 +38,10 @@ const web3 = __importStar(require("@solana/web3.js"));
  * @category generated
  */
 exports.initializeHostStruct = new beet.FixableBeetArgsStruct([
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['displayName', beet.utf8String],
-    ['profileImg', beet.utf8String],
-], 'InitializeHostInstructionArgs');
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["displayName", beet.utf8String],
+    ["profileImg", beet.utf8String],
+], "InitializeHostInstructionArgs");
 exports.initializeHostInstructionDiscriminator = [
     144, 209, 228, 75, 220, 241, 73, 77,
 ];
@@ -55,7 +55,7 @@ exports.initializeHostInstructionDiscriminator = [
  * @category InitializeHost
  * @category generated
  */
-function createInitializeHostInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+function createInitializeHostInstruction(accounts, args, programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
     var _a;
     const [data] = exports.initializeHostStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeHostInstructionDiscriminator }, args));
     const keys = [

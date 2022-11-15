@@ -39,9 +39,9 @@ const web3 = __importStar(require("@solana/web3.js"));
  * @category generated
  */
 exports.mintTicketForFreeStruct = new beet.FixableBeetArgsStruct([
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['uri', beet.utf8String],
-], 'MintTicketForFreeInstructionArgs');
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["uri", beet.utf8String],
+], "MintTicketForFreeInstructionArgs");
 exports.mintTicketForFreeInstructionDiscriminator = [
     241, 247, 24, 79, 169, 206, 190, 73,
 ];
@@ -55,7 +55,7 @@ exports.mintTicketForFreeInstructionDiscriminator = [
  * @category MintTicketForFree
  * @category generated
  */
-function createMintTicketForFreeInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+function createMintTicketForFreeInstruction(accounts, args, programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
     var _a, _b, _c;
     const [data] = exports.mintTicketForFreeStruct.serialize(Object.assign({ instructionDiscriminator: exports.mintTicketForFreeInstructionDiscriminator }, args));
     const keys = [

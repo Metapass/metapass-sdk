@@ -5,10 +5,10 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as beet from '@metaplex-foundation/beet'
-import * as web3 from '@solana/web3.js'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
-import { EventHost, eventHostBeet } from '../types/EventHost'
+import * as beet from "@metaplex-foundation/beet";
+import * as web3 from "@solana/web3.js";
+import * as beetSolana from "@metaplex-foundation/beet-solana";
+import { EventHost, eventHostBeet } from "../types/EventHost";
 
 /**
  * Arguments used to create {@link EventAccount}
@@ -16,27 +16,27 @@ import { EventHost, eventHostBeet } from '../types/EventHost'
  * @category generated
  */
 export type EventAccountArgs = {
-  title: string
-  description: string
-  uri: string
-  link: string
-  fee: beet.bignum
-  seats: beet.bignum
-  occupiedSeats: beet.bignum
-  date: string
-  collection: web3.PublicKey
-  venue: string
-  authority: web3.PublicKey
-  creators: web3.PublicKey[]
-  eventHost: EventHost
-  eventNonce: beet.bignum
-  bump: number
-  isCutPayedByCreator: boolean
-  isCustomSplToken: boolean
-  customSplToken: web3.PublicKey
-}
+  title: string;
+  description: string;
+  uri: string;
+  link: string;
+  fee: beet.bignum;
+  seats: beet.bignum;
+  occupiedSeats: beet.bignum;
+  date: string;
+  collection: web3.PublicKey;
+  venue: string;
+  authority: web3.PublicKey;
+  creators: web3.PublicKey[];
+  eventHost: EventHost;
+  eventNonce: beet.bignum;
+  bump: number;
+  isCutPayedByCreator: boolean;
+  isCustomSplToken: boolean;
+  customSplToken: web3.PublicKey;
+};
 
-export const eventAccountDiscriminator = [98, 136, 32, 165, 133, 231, 243, 154]
+export const eventAccountDiscriminator = [98, 136, 32, 165, 133, 231, 243, 154];
 /**
  * Holds the data for the {@link EventAccount} Account and provides de/serialization
  * functionality for that data
@@ -89,7 +89,7 @@ export class EventAccount implements EventAccountArgs {
       args.isCutPayedByCreator,
       args.isCustomSplToken,
       args.customSplToken
-    )
+    );
   }
 
   /**
@@ -100,7 +100,7 @@ export class EventAccount implements EventAccountArgs {
     accountInfo: web3.AccountInfo<Buffer>,
     offset = 0
   ): [EventAccount, number] {
-    return EventAccount.deserialize(accountInfo.data, offset)
+    return EventAccount.deserialize(accountInfo.data, offset);
   }
 
   /**
@@ -113,11 +113,11 @@ export class EventAccount implements EventAccountArgs {
     connection: web3.Connection,
     address: web3.PublicKey
   ): Promise<EventAccount> {
-    const accountInfo = await connection.getAccountInfo(address)
+    const accountInfo = await connection.getAccountInfo(address);
     if (accountInfo == null) {
-      throw new Error(`Unable to find EventAccount account at ${address}`)
+      throw new Error(`Unable to find EventAccount account at ${address}`);
     }
-    return EventAccount.fromAccountInfo(accountInfo, 0)[0]
+    return EventAccount.fromAccountInfo(accountInfo, 0)[0];
   }
 
   /**
@@ -128,10 +128,10 @@ export class EventAccount implements EventAccountArgs {
    */
   static gpaBuilder(
     programId: web3.PublicKey = new web3.PublicKey(
-      '2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK'
+      "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN"
     )
   ) {
-    return beetSolana.GpaBuilder.fromStruct(programId, eventAccountBeet)
+    return beetSolana.GpaBuilder.fromStruct(programId, eventAccountBeet);
   }
 
   /**
@@ -139,7 +139,7 @@ export class EventAccount implements EventAccountArgs {
    * @returns a tuple of the account data and the offset up to which the buffer was read to obtain it.
    */
   static deserialize(buf: Buffer, offset = 0): [EventAccount, number] {
-    return eventAccountBeet.deserialize(buf, offset)
+    return eventAccountBeet.deserialize(buf, offset);
   }
 
   /**
@@ -150,7 +150,7 @@ export class EventAccount implements EventAccountArgs {
     return eventAccountBeet.serialize({
       accountDiscriminator: eventAccountDiscriminator,
       ...this,
-    })
+    });
   }
 
   /**
@@ -161,11 +161,11 @@ export class EventAccount implements EventAccountArgs {
    * depends on them
    */
   static byteSize(args: EventAccountArgs) {
-    const instance = EventAccount.fromArgs(args)
+    const instance = EventAccount.fromArgs(args);
     return eventAccountBeet.toFixedFromValue({
       accountDiscriminator: eventAccountDiscriminator,
       ...instance,
-    }).byteSize
+    }).byteSize;
   }
 
   /**
@@ -184,7 +184,7 @@ export class EventAccount implements EventAccountArgs {
     return connection.getMinimumBalanceForRentExemption(
       EventAccount.byteSize(args),
       commitment
-    )
+    );
   }
 
   /**
@@ -198,37 +198,37 @@ export class EventAccount implements EventAccountArgs {
       uri: this.uri,
       link: this.link,
       fee: (() => {
-        const x = <{ toNumber: () => number }>this.fee
-        if (typeof x.toNumber === 'function') {
+        const x = <{ toNumber: () => number }>this.fee;
+        if (typeof x.toNumber === "function") {
           try {
-            return x.toNumber()
+            return x.toNumber();
           } catch (_) {
-            return x
+            return x;
           }
         }
-        return x
+        return x;
       })(),
       seats: (() => {
-        const x = <{ toNumber: () => number }>this.seats
-        if (typeof x.toNumber === 'function') {
+        const x = <{ toNumber: () => number }>this.seats;
+        if (typeof x.toNumber === "function") {
           try {
-            return x.toNumber()
+            return x.toNumber();
           } catch (_) {
-            return x
+            return x;
           }
         }
-        return x
+        return x;
       })(),
       occupiedSeats: (() => {
-        const x = <{ toNumber: () => number }>this.occupiedSeats
-        if (typeof x.toNumber === 'function') {
+        const x = <{ toNumber: () => number }>this.occupiedSeats;
+        if (typeof x.toNumber === "function") {
           try {
-            return x.toNumber()
+            return x.toNumber();
           } catch (_) {
-            return x
+            return x;
           }
         }
-        return x
+        return x;
       })(),
       date: this.date,
       collection: this.collection.toBase58(),
@@ -237,21 +237,21 @@ export class EventAccount implements EventAccountArgs {
       creators: this.creators,
       eventHost: this.eventHost,
       eventNonce: (() => {
-        const x = <{ toNumber: () => number }>this.eventNonce
-        if (typeof x.toNumber === 'function') {
+        const x = <{ toNumber: () => number }>this.eventNonce;
+        if (typeof x.toNumber === "function") {
           try {
-            return x.toNumber()
+            return x.toNumber();
           } catch (_) {
-            return x
+            return x;
           }
         }
-        return x
+        return x;
       })(),
       bump: this.bump,
       isCutPayedByCreator: this.isCutPayedByCreator,
       isCustomSplToken: this.isCustomSplToken,
       customSplToken: this.customSplToken.toBase58(),
-    }
+    };
   }
 }
 
@@ -262,30 +262,30 @@ export class EventAccount implements EventAccountArgs {
 export const eventAccountBeet = new beet.FixableBeetStruct<
   EventAccount,
   EventAccountArgs & {
-    accountDiscriminator: number[] /* size: 8 */
+    accountDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['accountDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['title', beet.utf8String],
-    ['description', beet.utf8String],
-    ['uri', beet.utf8String],
-    ['link', beet.utf8String],
-    ['fee', beet.u64],
-    ['seats', beet.u64],
-    ['occupiedSeats', beet.u64],
-    ['date', beet.utf8String],
-    ['collection', beetSolana.publicKey],
-    ['venue', beet.utf8String],
-    ['authority', beetSolana.publicKey],
-    ['creators', beet.array(beetSolana.publicKey)],
-    ['eventHost', eventHostBeet],
-    ['eventNonce', beet.u64],
-    ['bump', beet.u8],
-    ['isCutPayedByCreator', beet.bool],
-    ['isCustomSplToken', beet.bool],
-    ['customSplToken', beetSolana.publicKey],
+    ["accountDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["title", beet.utf8String],
+    ["description", beet.utf8String],
+    ["uri", beet.utf8String],
+    ["link", beet.utf8String],
+    ["fee", beet.u64],
+    ["seats", beet.u64],
+    ["occupiedSeats", beet.u64],
+    ["date", beet.utf8String],
+    ["collection", beetSolana.publicKey],
+    ["venue", beet.utf8String],
+    ["authority", beetSolana.publicKey],
+    ["creators", beet.array(beetSolana.publicKey)],
+    ["eventHost", eventHostBeet],
+    ["eventNonce", beet.u64],
+    ["bump", beet.u8],
+    ["isCutPayedByCreator", beet.bool],
+    ["isCustomSplToken", beet.bool],
+    ["customSplToken", beetSolana.publicKey],
   ],
   EventAccount.fromArgs,
-  'EventAccount'
-)
+  "EventAccount"
+);

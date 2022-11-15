@@ -5,9 +5,9 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as web3 from '@solana/web3.js'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
-import * as beet from '@metaplex-foundation/beet'
+import * as web3 from "@solana/web3.js";
+import * as beetSolana from "@metaplex-foundation/beet-solana";
+import * as beet from "@metaplex-foundation/beet";
 
 /**
  * @category Instructions
@@ -15,8 +15,8 @@ import * as beet from '@metaplex-foundation/beet'
  * @category generated
  */
 export type InitializeAdminInstructionArgs = {
-  admins: web3.PublicKey[]
-}
+  admins: web3.PublicKey[];
+};
 /**
  * @category Instructions
  * @category InitializeAdmin
@@ -24,15 +24,15 @@ export type InitializeAdminInstructionArgs = {
  */
 export const initializeAdminStruct = new beet.FixableBeetArgsStruct<
   InitializeAdminInstructionArgs & {
-    instructionDiscriminator: number[] /* size: 8 */
+    instructionDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['admins', beet.array(beetSolana.publicKey)],
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["admins", beet.array(beetSolana.publicKey)],
   ],
-  'InitializeAdminInstructionArgs'
-)
+  "InitializeAdminInstructionArgs"
+);
 /**
  * Accounts required by the _initializeAdmin_ instruction
  *
@@ -43,14 +43,14 @@ export const initializeAdminStruct = new beet.FixableBeetArgsStruct<
  * @category generated
  */
 export type InitializeAdminInstructionAccounts = {
-  adminAccount: web3.PublicKey
-  adminAuthority: web3.PublicKey
-  systemProgram?: web3.PublicKey
-}
+  adminAccount: web3.PublicKey;
+  adminAuthority: web3.PublicKey;
+  systemProgram?: web3.PublicKey;
+};
 
 export const initializeAdminInstructionDiscriminator = [
   35, 176, 8, 143, 42, 160, 61, 158,
-]
+];
 
 /**
  * Creates a _InitializeAdmin_ instruction.
@@ -65,12 +65,12 @@ export const initializeAdminInstructionDiscriminator = [
 export function createInitializeAdminInstruction(
   accounts: InitializeAdminInstructionAccounts,
   args: InitializeAdminInstructionArgs,
-  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
+  programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")
 ) {
   const [data] = initializeAdminStruct.serialize({
     instructionDiscriminator: initializeAdminInstructionDiscriminator,
     ...args,
-  })
+  });
   const keys: web3.AccountMeta[] = [
     {
       pubkey: accounts.adminAccount,
@@ -87,12 +87,12 @@ export function createInitializeAdminInstruction(
       isWritable: false,
       isSigner: false,
     },
-  ]
+  ];
 
   const ix = new web3.TransactionInstruction({
     programId,
     keys,
     data,
-  })
-  return ix
+  });
+  return ix;
 }

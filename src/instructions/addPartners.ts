@@ -5,9 +5,9 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as web3 from '@solana/web3.js'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
-import * as beet from '@metaplex-foundation/beet'
+import * as web3 from "@solana/web3.js";
+import * as beetSolana from "@metaplex-foundation/beet-solana";
+import * as beet from "@metaplex-foundation/beet";
 
 /**
  * @category Instructions
@@ -15,8 +15,8 @@ import * as beet from '@metaplex-foundation/beet'
  * @category generated
  */
 export type AddPartnersInstructionArgs = {
-  partner: web3.PublicKey
-}
+  partner: web3.PublicKey;
+};
 /**
  * @category Instructions
  * @category AddPartners
@@ -24,15 +24,15 @@ export type AddPartnersInstructionArgs = {
  */
 export const addPartnersStruct = new beet.BeetArgsStruct<
   AddPartnersInstructionArgs & {
-    instructionDiscriminator: number[] /* size: 8 */
+    instructionDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['partner', beetSolana.publicKey],
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["partner", beetSolana.publicKey],
   ],
-  'AddPartnersInstructionArgs'
-)
+  "AddPartnersInstructionArgs"
+);
 /**
  * Accounts required by the _addPartners_ instruction
  *
@@ -43,13 +43,13 @@ export const addPartnersStruct = new beet.BeetArgsStruct<
  * @category generated
  */
 export type AddPartnersInstructionAccounts = {
-  adminAccount: web3.PublicKey
-  adminAuthority: web3.PublicKey
-}
+  adminAccount: web3.PublicKey;
+  adminAuthority: web3.PublicKey;
+};
 
 export const addPartnersInstructionDiscriminator = [
   130, 213, 217, 119, 251, 82, 6, 73,
-]
+];
 
 /**
  * Creates a _AddPartners_ instruction.
@@ -64,12 +64,12 @@ export const addPartnersInstructionDiscriminator = [
 export function createAddPartnersInstruction(
   accounts: AddPartnersInstructionAccounts,
   args: AddPartnersInstructionArgs,
-  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
+  programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")
 ) {
   const [data] = addPartnersStruct.serialize({
     instructionDiscriminator: addPartnersInstructionDiscriminator,
     ...args,
-  })
+  });
   const keys: web3.AccountMeta[] = [
     {
       pubkey: accounts.adminAccount,
@@ -81,12 +81,12 @@ export function createAddPartnersInstruction(
       isWritable: true,
       isSigner: true,
     },
-  ]
+  ];
 
   const ix = new web3.TransactionInstruction({
     programId,
     keys,
     data,
-  })
-  return ix
+  });
+  return ix;
 }

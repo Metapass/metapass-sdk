@@ -210,7 +210,12 @@ export const idl = {
           isSigner: false,
         },
         {
-          name: "tokenAccount",
+          name: "payerTokenAccount",
+          isMut: true,
+          isSigner: false,
+        },
+        {
+          name: "attendeeTokenAccount",
           isMut: true,
           isSigner: false,
         },
@@ -582,6 +587,6 @@ export const idl = {
     },
   ],
   metadata: {
-    address: "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK",
+    address: "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN",
   },
 };

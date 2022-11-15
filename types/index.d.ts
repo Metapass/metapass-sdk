@@ -11,7 +11,8 @@ export * from "./idl";
  * @category constants
  * @category generated
  */
-export declare const PROGRAM_ADDRESS = "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK";
+export declare const PROGRAM_ADDRESS =
+  "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN";
 /**
  * Program public key
  *

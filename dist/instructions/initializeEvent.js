@@ -39,9 +39,9 @@ const CreateEventInput_1 = require("../types/CreateEventInput");
  * @category generated
  */
 exports.initializeEventStruct = new beet.FixableBeetArgsStruct([
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['createEventInfo', CreateEventInput_1.createEventInputBeet],
-], 'InitializeEventInstructionArgs');
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["createEventInfo", CreateEventInput_1.createEventInputBeet],
+], "InitializeEventInstructionArgs");
 exports.initializeEventInstructionDiscriminator = [
     126, 249, 86, 221, 202, 171, 134, 20,
 ];
@@ -55,7 +55,7 @@ exports.initializeEventInstructionDiscriminator = [
  * @category InitializeEvent
  * @category generated
  */
-function createInitializeEventInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+function createInitializeEventInstruction(accounts, args, programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
     var _a;
     const [data] = exports.initializeEventStruct.serialize(Object.assign({ instructionDiscriminator: exports.initializeEventInstructionDiscriminator }, args));
     const keys = [

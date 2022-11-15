@@ -39,9 +39,9 @@ const beet = __importStar(require("@metaplex-foundation/beet"));
  * @category generated
  */
 exports.removePartnerStruct = new beet.BeetArgsStruct([
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['address', beetSolana.publicKey],
-], 'RemovePartnerInstructionArgs');
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["address", beetSolana.publicKey],
+], "RemovePartnerInstructionArgs");
 exports.removePartnerInstructionDiscriminator = [
     205, 64, 184, 235, 182, 107, 63, 15,
 ];
@@ -55,7 +55,7 @@ exports.removePartnerInstructionDiscriminator = [
  * @category RemovePartner
  * @category generated
  */
-function createRemovePartnerInstruction(accounts, args, programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+function createRemovePartnerInstruction(accounts, args, programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
     const [data] = exports.removePartnerStruct.serialize(Object.assign({ instructionDiscriminator: exports.removePartnerInstructionDiscriminator }, args));
     const keys = [
         {

@@ -28,7 +28,7 @@ __exportStar(require("./idl"), exports);
  * @category constants
  * @category generated
  */
-exports.PROGRAM_ADDRESS = "2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK";
+exports.PROGRAM_ADDRESS = "H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN";
 /**
  * Program public key
  *

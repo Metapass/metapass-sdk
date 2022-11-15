@@ -5,9 +5,9 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as web3 from '@solana/web3.js'
-import * as beetSolana from '@metaplex-foundation/beet-solana'
-import * as beet from '@metaplex-foundation/beet'
+import * as web3 from "@solana/web3.js";
+import * as beetSolana from "@metaplex-foundation/beet-solana";
+import * as beet from "@metaplex-foundation/beet";
 
 /**
  * @category Instructions
@@ -15,8 +15,8 @@ import * as beet from '@metaplex-foundation/beet'
  * @category generated
  */
 export type RemovePartnerInstructionArgs = {
-  address: web3.PublicKey
-}
+  address: web3.PublicKey;
+};
 /**
  * @category Instructions
  * @category RemovePartner
@@ -24,15 +24,15 @@ export type RemovePartnerInstructionArgs = {
  */
 export const removePartnerStruct = new beet.BeetArgsStruct<
   RemovePartnerInstructionArgs & {
-    instructionDiscriminator: number[] /* size: 8 */
+    instructionDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['address', beetSolana.publicKey],
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["address", beetSolana.publicKey],
   ],
-  'RemovePartnerInstructionArgs'
-)
+  "RemovePartnerInstructionArgs"
+);
 /**
  * Accounts required by the _removePartner_ instruction
  *
@@ -43,13 +43,13 @@ export const removePartnerStruct = new beet.BeetArgsStruct<
  * @category generated
  */
 export type RemovePartnerInstructionAccounts = {
-  adminAccount: web3.PublicKey
-  adminAuthority: web3.PublicKey
-}
+  adminAccount: web3.PublicKey;
+  adminAuthority: web3.PublicKey;
+};
 
 export const removePartnerInstructionDiscriminator = [
   205, 64, 184, 235, 182, 107, 63, 15,
-]
+];
 
 /**
  * Creates a _RemovePartner_ instruction.
@@ -64,12 +64,12 @@ export const removePartnerInstructionDiscriminator = [
 export function createRemovePartnerInstruction(
   accounts: RemovePartnerInstructionAccounts,
   args: RemovePartnerInstructionArgs,
-  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
+  programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")
 ) {
   const [data] = removePartnerStruct.serialize({
     instructionDiscriminator: removePartnerInstructionDiscriminator,
     ...args,
-  })
+  });
   const keys: web3.AccountMeta[] = [
     {
       pubkey: accounts.adminAccount,
@@ -81,12 +81,12 @@ export function createRemovePartnerInstruction(
       isWritable: true,
       isSigner: true,
     },
-  ]
+  ];
 
   const ix = new web3.TransactionInstruction({
     programId,
     keys,
     data,
-  })
-  return ix
+  });
+  return ix;
 }

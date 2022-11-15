@@ -91,7 +91,7 @@ class EventHostAccount {
      *
      * @param programId - the program that owns the accounts we are filtering
      */
-    static gpaBuilder(programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')) {
+    static gpaBuilder(programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")) {
         return beetSolana.GpaBuilder.fromStruct(programId, exports.eventHostAccountBeet);
     }
     /**
@@ -148,6 +148,6 @@ exports.EventHostAccount = EventHostAccount;
  * @category generated
  */
 exports.eventHostAccountBeet = new beet.FixableBeetStruct([
-    ['accountDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['eventHostStruct', EventHost_1.eventHostBeet],
-], EventHostAccount.fromArgs, 'EventHostAccount');
+    ["accountDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["eventHostStruct", EventHost_1.eventHostBeet],
+], EventHostAccount.fromArgs, "EventHostAccount");

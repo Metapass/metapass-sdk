@@ -5,12 +5,12 @@
  * See: https://github.com/metaplex-foundation/solita
  */
 
-import * as beet from '@metaplex-foundation/beet'
-import * as web3 from '@solana/web3.js'
+import * as beet from "@metaplex-foundation/beet";
+import * as web3 from "@solana/web3.js";
 import {
   CreateEventInput,
   createEventInputBeet,
-} from '../types/CreateEventInput'
+} from "../types/CreateEventInput";
 
 /**
  * @category Instructions
@@ -18,8 +18,8 @@ import {
  * @category generated
  */
 export type InitializeEventInstructionArgs = {
-  createEventInfo: CreateEventInput
-}
+  createEventInfo: CreateEventInput;
+};
 /**
  * @category Instructions
  * @category InitializeEvent
@@ -27,15 +27,15 @@ export type InitializeEventInstructionArgs = {
  */
 export const initializeEventStruct = new beet.FixableBeetArgsStruct<
   InitializeEventInstructionArgs & {
-    instructionDiscriminator: number[] /* size: 8 */
+    instructionDiscriminator: number[] /* size: 8 */;
   }
 >(
   [
-    ['instructionDiscriminator', beet.uniformFixedSizeArray(beet.u8, 8)],
-    ['createEventInfo', createEventInputBeet],
+    ["instructionDiscriminator", beet.uniformFixedSizeArray(beet.u8, 8)],
+    ["createEventInfo", createEventInputBeet],
   ],
-  'InitializeEventInstructionArgs'
-)
+  "InitializeEventInstructionArgs"
+);
 /**
  * Accounts required by the _initializeEvent_ instruction
  *
@@ -47,15 +47,15 @@ export const initializeEventStruct = new beet.FixableBeetArgsStruct<
  * @category generated
  */
 export type InitializeEventInstructionAccounts = {
-  eventAccount: web3.PublicKey
-  authority: web3.PublicKey
-  eventHostAccount: web3.PublicKey
-  systemProgram?: web3.PublicKey
-}
+  eventAccount: web3.PublicKey;
+  authority: web3.PublicKey;
+  eventHostAccount: web3.PublicKey;
+  systemProgram?: web3.PublicKey;
+};
 
 export const initializeEventInstructionDiscriminator = [
   126, 249, 86, 221, 202, 171, 134, 20,
-]
+];
 
 /**
  * Creates a _InitializeEvent_ instruction.
@@ -70,12 +70,12 @@ export const initializeEventInstructionDiscriminator = [
 export function createInitializeEventInstruction(
   accounts: InitializeEventInstructionAccounts,
   args: InitializeEventInstructionArgs,
-  programId = new web3.PublicKey('2PsDAHY1FEnSrcRkJcL4X8e6ah7meBMLxYvcpdkcEJdK')
+  programId = new web3.PublicKey("H8DZgtTkHL9nNjG8zvgqRMxkjXiWtde4nYScsUdzFaDN")
 ) {
   const [data] = initializeEventStruct.serialize({
     instructionDiscriminator: initializeEventInstructionDiscriminator,
     ...args,
-  })
+  });
   const keys: web3.AccountMeta[] = [
     {
       pubkey: accounts.eventAccount,
@@ -97,12 +97,12 @@ export function createInitializeEventInstruction(
       isWritable: false,
       isSigner: false,
     },
-  ]
+  ];
 
   const ix = new web3.TransactionInstruction({
     programId,
     keys,
     data,
-  })
-  return ix
+  });
+  return ix;
 }
